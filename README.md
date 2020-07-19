@@ -1,5 +1,5 @@
 # Webserver Backend
-The full, Priveasy django backend.
+The full, Priveasy django backend
 
 ------------
 
