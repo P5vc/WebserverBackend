@@ -29,18 +29,24 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.p5.vc',
+    '.priveasy.org',
+    '.priveasy6qxoehbhq5nxcxv35y6el73hpzpda7wgtnfe5qaspemtl6qd.onion',
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'mainSite.apps.MainsiteConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'kronos',
 ]
 
 MIDDLEWARE = [
@@ -101,6 +107,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS':
+        {
+            'min_length': 12,
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -108,6 +118,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+]
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
 ]
 
 
@@ -130,3 +145,48 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = Path(BASE_DIR , 'static/')
+
+
+###########################################################
+
+
+# Management
+ADMINS = [('Noah' , 'Admin@Priveasy.org')]
+MANAGERS = (('Noah' , 'Admin@Priveasy.org'))
+
+# Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Priveasy <server@noreply.priveasy.org>'
+
+# Security Settings
+SECURE_HSTS_SECONDS = 15552000
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_HSTS_PRELOAD = True
+SECURE_REFERRER_POLICY = 'same-origin'
+
+# Login Options
+LOGIN_REDIRECT_URL = 'account'
+LOGIN_URL = '/#Login'
+LOGOUT_URL = 'logout'
+PASSWORD_RESET_TIMEOUT = 10800
+
+# Celery
+CELERY_TASK_SOFT_TIME_LIMIT = 3540
+CELERY_TASK_TIME_LIMIT = 3600
+
+# Zcash
+# Populate later...
+
+# Tor
+HOST_SCHEME_ALWAYS_HTTPS = ['priveasy6qxoehbhq5nxcxv35y6el73hpzpda7wgtnfe5qaspemtl6qd.onion']
