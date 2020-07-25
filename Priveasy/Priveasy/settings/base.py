@@ -186,7 +186,12 @@ CELERY_TASK_SOFT_TIME_LIMIT = 3540
 CELERY_TASK_TIME_LIMIT = 3600
 
 # Zcash
-# Populate later...
+
+# Zcash Wallet Encryption Key:
+ZCASH_WALLET_ENCRYPTION_KEY = env('ZCASH_WALLET_ENCRYPTION_KEY').encode('utf-8')
+
+# Final, hardware address to send received payments to:
+PRIVEASY_ZCASH_ADDRESS = b't1VXoLAYQU8EzSzVYTJSL6pqWkLshpazDCa'
 
 # Tor
 HOST_SCHEME_ALWAYS_HTTPS = ['priveasy6qxoehbhq5nxcxv35y6el73hpzpda7wgtnfe5qaspemtl6qd.onion']
