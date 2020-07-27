@@ -37,10 +37,6 @@ class VPNServer(admin.ModelAdmin):
 class Discount(admin.ModelAdmin):
 	list_display = ['code']
 
-@admin.register(BudgetCalculator)
-class BudgetCalculator(admin.ModelAdmin):
-	pass
-
 @admin.register(EmailUsers)
 class EmailUsers(admin.ModelAdmin):
 	pass
