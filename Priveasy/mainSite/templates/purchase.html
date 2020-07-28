@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Purchase a Plan</title>
+        <link rel="apple-touch-icon" href="{% static "icons/AppleIcon.png" %}">
+    	<link rel="icon" sizes="192x192" href="{% static "icons/Icon.png" %}">
+    	<link rel="shortcut icon" href="{% static "icons/ShortcutIcon.png" %}">
+        <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+        <link href="{% static "css/register.css" %}" rel="stylesheet">
+        <link href="{% static "css/stripe.css" %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row vertical-center">
+                <div class="col-lg-10 col-xl-9 mx-auto">
+                    <div class="card card-signin flex-row my-5">
+                        <div class="card-img-left d-none d-md-flex">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center" style="margin-bottom: 0px;">Purchase a Plan</h5>
+                            <form class="form-signin" action="." method="post" id="payment-form">
+                            <div style="margin-top: 15px; margin-bottom: 15px; text-align: center;">{% if request.user.accountcontents.planType != 0 %}
+                                <h6>If you wish to change your current plan (plan #{{ request.user.accountcontents.planType }}), please{% if request.user.accountcontents.autoRenew %} cancel auto recharge and{% endif %} wait for it to expire, or <a href="{% url "register" %}">create a new account</a>.</h6>{% endif %}
+                                <div style="margin-top: 10px; margin-bottom: 15px;">
+                                    <h5><a href="{% url "home" %}#Plans">Review Plan Options</a></h5>
+                                    <h5><a href="{% url "cryptoPayment" %}">Pay With Cryptocurrency</a></h5>
+                                </div>
+                            </div>{% if request.user.accountcontents.autoRenew %}
+                            <div class="form-label-group">
+                                <input type="hidden" name="autoRenew" value="Cancel">
+                                {% csrf_token %}
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Cancel Auto Recharge</button>
+                            </form>{% else %}
+                            <div class="form-label-group">
+                                <p><select name="planType" id="id_planType" class="form-control">
+                                {% if request.user.accountcontents.planType == 1 %}
+                                    <option value="1" selected>$2 - Extend Plan By 30 Days</option>
+                                    <option value="2">$12 - Extend Plan By 180 Days</option>
+                                {% elif request.user.accountcontents.planType == 2 %}
+                                    <option value="1" selected>$4.00 - Extend Plan By 30 Days</option>
+                                    <option value="2">$22.50 - Extend Plan By 180 Days</option>
+                                {% elif request.user.accountcontents.planType == 3 %}
+                                    <option value="1" selected>$5.00 - Extend Plan By 30 Days</option>
+                                    <option value="2">$28.50 - Extend Plan By 180 Days</option>
+                                {% else %}
+                                    <option value="1" selected>Plan 1 (30 Days) - $2.00</option>
+                                    <option value="2">Plan 1 (180 Days) - $12.00</option>
+                                    <option value="3">Plan 2 (30 Days) - $4.00</option>
+                                    <option value="4">Plan 2 (180 Days) - $22.50</option>
+                                    <option value="5">Plan 3 (30 Days) - $5.00</option>
+                                    <option value="6">Plan 3 (180 Days) - $28.50</option>
+                                {% endif %}
+                                </select></p>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" id="referral_code" name="referral_code" maxlength="15" class="form-control" placeholder="Referral/Coupon Code">
+                                    <label for="referral_code">Referral/Coupon Code</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="autoRenew" name="autoRenew" value="Yes">
+                                    <label class="custom-control-label" for="autoRenew">Automatically Recharge My Card</label>
+                                </div>
+                                <hr>
+                                <p><div id="card-element"><!-- A Stripe Element will be inserted here. --></div> </p>
+                                <!-- Used to display form errors. -->
+                                <p><div id="card-errors" role="alert"></div> </p>
+                                {% csrf_token %}
+                                <div style="margin-top: 15px; margin-bottom: 15px; text-align: center;">
+                                    <h6>By clicking "Submit Payment", I acknowledge that I have read and agree to the <a href="{% url "home" %}policies/1/">Privacy Statement</a> and <a href="{% url "home" %}policies/2/">Terms of Service</a>, as well as any terms of service found at <a href="https://stripe.com/legal">Stripe.com</a>.</h6>
+                                </div>
+                                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Submit Payment</button>
+                            </form>{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if not request.user.accountcontents.autoRenew %}
+            <!-- Stripe payment resources -->
+            <script src="https://js.stripe.com/v3/"></script>
+            <script src="{% static "js/stripe.js" %}"></script>
+        {% endif %}
+    </body>
+</html>
