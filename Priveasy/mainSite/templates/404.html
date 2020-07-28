@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" style="height: 100%; background-color: #333;">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" sizes="192x192" href="{% static "icons/Icon.png" %}">
+        <meta http-equiv="refresh" content="10; url={% url "home" %}" />
+        <title>Page Not Found</title>
+        <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+    </head>
+    <style>
+	    .widthRules
+	    {
+	        margin-right: auto;
+            margin-left: auto;
+	    }
+	    @media (min-width: 40em)
+	    {
+	        .widthRules
+	        {
+	            width: 100%;
+	        }
+	   }
+	   @media (min-width: 62em)
+	    {
+	        .widthRules
+	        {
+	            width: 42rem;
+	        }
+	   }
+    </style>
+    <body style="height: 100%; background-color: #333; color: #fff; text-align: center; text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);">
+        <div style="display: table; width: 100%; height: 100%; min-height: 100%; -webkit-box-shadow: inset 0 0 5rem rgba(0,0,0,.5); box-shadow: inset 0 0 5rem rgba(0,0,0,.5);">
+            <div style="display: table-cell; vertical-align: middle;">
+                <div class="widthRules">
+                    <div style="padding: 2rem; padding: 0 1.5rem; padding: .75rem 1.25rem; font-weight: bold;">
+                        <a href="{% url "home" %}">
+                            <img src="{% static "img/Priveasy404Countdown.gif" %}" style="width: 100%;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
