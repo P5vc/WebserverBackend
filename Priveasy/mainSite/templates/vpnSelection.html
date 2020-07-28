@@ -1,0 +1,51 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>VPN Profile Selection</title>
+        <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+        <link href="{% static "css/fullscreen.css" %}" rel="stylesheet">
+    </head>
+    <body class="text-center">
+            <h1 class="h3 mb-3 font-weight-normal">
+			{% if request.user.accountcontents.planType == 2 %}
+			<a href="{% url "vpnDownload" slug1 %}" style="color: #686868; font-weight: bolder;">Domestic Profile 1</a>
+			<br>
+			<a href="{% url "vpnDownload" slug2 %}" style="color: #686868; font-weight: bolder;">Domestic Profile 2</a>
+			<br>
+			<a href="{% url "account" %}" style="color: #686868; font-weight: bolder;">Back</a>
+			{% elif request.user.accountcontents.planType == 3 %}
+			<a href="{% url "vpnDownload" slug1 %}" style="color: #686868; font-weight: bolder;">Domestic Profile 1</a>
+			<br>
+			<a href="{% url "vpnDownload" slug2 %}" style="color: #686868; font-weight: bolder;">Domestic Profile 2</a>
+			<br>
+			<a href="{% url "vpnDownload" slug3 %}" style="color: #686868; font-weight: bolder;">Domestic Profile 3</a>
+			<br>
+			<a href="{% url "vpnDownload" slug4 %}" style="color: #686868; font-weight: bolder;">Domestic Profile 4</a>
+			<br>
+			<a href="{% url "vpnDownload" slug5 %}" style="color: #686868; font-weight: bolder;">Domestic Profile 5</a>
+			<br>
+			<a href="{% url "vpnDownload" slug6 %}" style="color: #686868; font-weight: bolder;">Offshore Profile 1</a>
+			<br>
+			<a href="{% url "vpnDownload" slug7 %}" style="color: #686868; font-weight: bolder;">Offshore Profile 2</a>
+			<br>
+			<a href="{% url "vpnDownload" slug8 %}" style="color: #686868; font-weight: bolder;">Offshore Profile 3</a>
+			<br>
+			<a href="{% url "vpnDownload" slug9 %}" style="color: #686868; font-weight: bolder;">Offshore Profile 4</a>
+			<br>
+			<a href="{% url "vpnDownload" slug10 %}" style="color: #686868; font-weight: bolder;">Offshore Profile 5</a>
+			<br>
+			<a href="{% url "account" %}" style="color: #686868; font-weight: bolder;">Back</a>
+			{% else %}
+			<a href="{% url "account" %}" style="color: #686868; font-weight: bolder;">You must have plan #2 or plan #3 to access this page.</a>
+			<br>
+			<a href="{% url "account" %}" style="color: #686868; font-weight: bolder;">Back</a>
+			{% endif %}
+			</h1>
+    </body>
+</html>
