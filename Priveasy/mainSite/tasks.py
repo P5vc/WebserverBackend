@@ -225,6 +225,8 @@ def cleanup():
 
 @kronos.register('0 0 * * *')
 def maintenance():
+	stripe.api_key = settings.stripeAPIKey
+
 	userObjsList = User.objects.all()
 	for user in userObjsList:
 		secondsLeft = int(user.accountcontents.planExpiration - time.time())
