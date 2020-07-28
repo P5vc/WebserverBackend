@@ -55,7 +55,7 @@ def sendText(number , message):
 	env = environ.Env()
 	environ.Env.read_env()
 
-	client = Client(env('accountSID') , env('authToken'))
+	client = Client(settings.twilioAccountSID , settings.twilioAuthToken)
 	client.messages.create(to = number , from_ = '+13364398765' , body = message)
 
 
