@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" sizes="192x192" href="{% static "icons/Icon.png" %}">
+        <title>Create An Account</title>
+        <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+        <link href="{% static "css/register.css" %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row vertical-center">
+                <div class="col-lg-10 col-xl-9 mx-auto">
+                    <div class="card card-signin flex-row my-5">
+                        <div class="card-img-left d-none d-md-flex">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Create an Account</h5>
+                            <form class="form-signin" action="." method="post">
+                                {% if errors %}
+                                    <div style="margin-top: 15px; margin-bottom: 15px; text-align: center;">
+                                        <h5>Form Error(s):</h5>
+                                        {% for error in errors %}
+                                            <h6 class="text-danger">{{ error }}</h6>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <div class="form-label-group">
+                                    <input type="text" name="username" maxlength="150" id="id_username" class="form-control" placeholder="Username" required autofocus>
+                                    <label for="id_username">Username</label>
+                                </div>
+                                <div class="form-label-group">
+                                    <input type="text" id="id_first_name" name="first_name" maxlength="30" class="form-control" placeholder="First Name" required>
+                                    <label for="id_first_name">First Name</label>
+                                </div>
+                                <div class="form-label-group">
+                                    <input type="email" name="email" maxlength="254" id="id_email" class="form-control" placeholder="Email address" required>
+                                    <label for="id_email">Email Address</label>
+                                </div>
+                                <hr>
+                                <div class="form-label-group">
+                                    <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
+                                    <label for="id_password">Password</label>
+                                </div>
+                                <div class="form-label-group">
+                                    <input type="password" name="passwordAgain" id="id_passwordAgain" class="form-control" placeholder="Password" required>
+                                    <label for="id_passwordAgain">Confirm Password</label>
+                                </div>
+                                {% csrf_token %}
+                                <div style="margin-top: 15px; margin-bottom: 15px; text-align: center;">
+                                    <h6>By clicking "Register", I acknowledge that I have read and agree to the <a href="{% url "home" %}policies/1/">Privacy Statement</a> and <a href="{% url "home" %}policies/2/">Terms of Service</a>.</h6>
+                                </div>
+                                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                                <a class="d-block text-center mt-2 small" href="{% url "home" %}#Login">Sign In</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
