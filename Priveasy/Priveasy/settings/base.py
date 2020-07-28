@@ -195,3 +195,10 @@ PRIVEASY_ZCASH_ADDRESS = b't1VXoLAYQU8EzSzVYTJSL6pqWkLshpazDCa'
 
 # Tor
 HOST_SCHEME_ALWAYS_HTTPS = ['priveasy6qxoehbhq5nxcxv35y6el73hpzpda7wgtnfe5qaspemtl6qd.onion']
+
+# Twilio
+twilioAccountSID = env('TWILIO_ACCOUNT_SID')
+twilioAuthToken = env('TWILIO_AUTH_TOKEN')
+
+# Stripe
+stripeAPIKey = env('STRIPE_API_KEY')
