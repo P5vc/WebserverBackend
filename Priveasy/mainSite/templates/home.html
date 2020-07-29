@@ -1,0 +1,787 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Priveasy</title>
+        <link rel="apple-touch-icon" href="{% static "icons/AppleIcon.png" %}">
+        <link rel="icon" sizes="192x192" href="{% static "icons/Icon.png" %}">
+        <link rel="shortcut icon" href="{% static "icons/ShortcutIcon.png" %}">
+        <link href="{% static "css/icons.css" %}" rel="stylesheet" type="text/css">
+        <link href="{% static "css/home.css" %}" rel="stylesheet">
+    </head>
+    <body id="page-top">
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top" style="font-family: 'Times New Roman'; text-transform: none;"><img src="{% static "icons/Icon.png" %}" style="width: 50px;"/> Priveasy</a>
+                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#About">About</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#Services">Services</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#Plans">Plans</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                        {% if request.user.is_authenticated %}
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "account" %}">Dashboard</a>
+                        {% else %}
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#Login">Log In</a>
+                        {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+		<div class="masthead">
+	        <header class="text-center">
+	            <img src="{% static "img/Logo.png" %}" style="width: 90%; max-width: 1300px; background-color: rgba(255, 255, 255, 0.5); padding: 2%; border: 5px solid #5f2381;"/>
+	        </header>
+	        <!-- About Section -->
+	        <section class="page-section text-black" id="About" style="margin-top: 5rem; padding: 2% 1%; margin-left: 4%; margin-right: 4%; border: 4px solid;">
+                <!-- About Section Heading -->
+                <h2 class="page-section-heading text-center text-uppercase text-black">About</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom divider-dark">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- About Section Content -->
+                <div class="row">
+					<div class="col-lg-6 ml-auto">
+						<p class="lead">Priveasy is a community-driven internet privacy and security organization. Our goal is to provide you with—at the lowest cost possible—the tools and services you need, to stay safe online. We always build our tools upon the best, open source projects out there, and design them to guard your privacy and freedom of speech at all times. At no point will you find any trackers, cookies, analytics, etc. on our website or in our products.</p>
+                    </div>
+                    <div class="col-lg-6 mr-auto">
+						<p class="lead">Priveasy is committed to remaining open source, transparent, and as friendly as possible. If you ever have any questions, please don't hesitate to reach out! You can contact us at <a href="mailto:Support@Priveasy.org">Support@Priveasy.org</a> or via Signal, using the number provided in the footer. If you enjoy our services, please reach out to friends and family to let them know about us: the more users that join, the lower the costs will get for everyone!</p>
+                    </div>
+                </div>
+                <!-- About Section Button -->
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-light" href="{% url "register" %}"> <i class="fas fa-user-plus mr-2"></i>
+          Sign Up </a>
+	        </section>
+		</div>
+        <section class="page-section service" id="Services" style="margin-top: 8rem; margin-bottom: 4rem;">
+            <div class="container">
+                <!-- Services Section Heading -->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Services</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+					<i class="fas fa-2x fa-server" style="color: #000000;"></i>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Services Grid Items -->
+                <div class="row">
+                    <!-- Services Item 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-item mx-auto" data-toggle="modal" data-target="#serviceModal1">
+                            <div class="service-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="service-item-caption-content text-center text-white">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="{% static "img/VPNThumbnail.jpg" %}" alt="">
+                        </div>
+                    </div>
+                    <!-- Services Item 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-item mx-auto" data-toggle="modal" data-target="#serviceModal2">
+                            <div class="service-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="service-item-caption-content text-center text-white">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="{% static "img/EmailThumbnail.jpg" %}" alt="">
+                        </div>
+                    </div>
+                    <!-- Services Item 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-item mx-auto" data-toggle="modal" data-target="#serviceModal3">
+                            <div class="service-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="service-item-caption-content text-center text-white">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="{% static "img/TextMessageThumbnail.jpg" %}" alt="">
+                        </div>
+                    </div>
+                    <!-- Services Item 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-item mx-auto" data-toggle="modal" data-target="#serviceModal4">
+                            <div class="service-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="service-item-caption-content text-center text-white">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="{% static "img/PastebinThumbnail.jpg" %}" alt="">
+                        </div>
+                    </div>
+                    <!-- Services Item 5 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-item mx-auto" data-toggle="modal" data-target="#serviceModal5">
+                            <div class="service-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="service-item-caption-content text-center text-white">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="{% static "img/URLShortenerThumbnail.jpg" %}" alt="">
+                        </div>
+                    </div>
+                    <!-- Services Item 6 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-item mx-auto" data-toggle="modal" data-target="#serviceModal6">
+                            <div class="service-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="service-item-caption-content text-center text-white">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="{% static "img/CanaryThumbnail.jpg" %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Plans Section -->
+        <section class="pricing py-5 page-section" id="Plans" style="margin-bottom: 6rem;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card mb-5 mb-lg-0">
+                            <div class="card-body">
+                                <h5 class="card-title text-muted text-uppercase text-center">Plan 1</h5>
+                                <h6 class="card-price text-center">$2<span class="period">/month</span></h6>
+                                <hr>
+                                <ul class="fa-ul">
+                                    <li style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>Pastebin
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li class="text-muted">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>Share Publicly</small>
+										</li>
+									</ul>
+									<li style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>URL Shortening
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>5 Shortened URLs</small>
+										</li>
+										<li class="text-muted">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>Click Statistics</small>
+										</li>
+									</ul>
+                                    <li style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>Burner Email
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>3 Email Forwarders</small>
+										</li>
+										<li class="text-muted" style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>Send 0 Burner Emails</small>
+										</li>
+										<li class="text-muted">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>Receive Replies</small>
+										</li>
+									</ul>
+                                    <li class="text-muted" style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-times"></i></span>Burner Text Messaging
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li class="text-muted">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>0 Messages</small>
+										</li>
+									</ul>
+                                    <li class="text-muted" style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-times"></i></span>VPN
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li class="text-muted" style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>0 Profiles</small>
+										</li>
+										<li class="text-muted" style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>Domestic VPN</small>
+										</li>
+										<li class="text-muted" style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>Offshore VPN</small>
+										</li>
+										<li class="text-muted">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>Obfuscated Proxy</small>
+										</li>
+									</ul>
+                                    <li class="text-muted" style="font-weight: bold; margin-bottom: 0rem;">
+                                        <span class="fa-li"><i class="fas fa-times"></i></span>Multi-Month Discount
+                                    </li>
+									<li class="text-muted" style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-times"></i></span>Pay With Crypto
+                                    </li>
+                                </ul>
+                                <a href="{% url "purchase" %}" class="btn btn-block btn-primary text-uppercase">Purchase</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card mb-5 mb-lg-0">
+                            <div class="card-body">
+                                <h5 class="card-title text-muted text-uppercase text-center">Plan 2</h5>
+                                <h6 class="card-price text-center">$4<span class="period">/month</span></h6>
+                                <hr>
+								<ul class="fa-ul">
+                                    <li style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>Pastebin
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li>
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>Share Publicly</small>
+										</li>
+									</ul>
+									<li style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>URL Shortening
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>15 Shortened URLs</small>
+										</li>
+										<li class="text-muted">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>Click Statistics</small>
+										</li>
+									</ul>
+                                    <li style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>Burner Email
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>5 Email Forwarders</small>
+										</li>
+										<li style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>Send 10 Burner Emails</small>
+										</li>
+										<li class="text-muted">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>Receive Replies</small>
+										</li>
+									</ul>
+                                    <li class="text-muted" style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-times"></i></span>Burner Text Messaging
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li class="text-muted">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>0 Messages</small>
+										</li>
+									</ul>
+                                    <li style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>VPN
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>2 Profiles</small>
+										</li>
+										<li style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>Domestic VPN</small>
+										</li>
+										<li class="text-muted" style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>Offshore VPN</small>
+										</li>
+										<li class="text-muted">
+											<span class="fa-li"><small><i class="fas fa-times"></i></small></span><small>Obfuscated Proxy</small>
+										</li>
+									</ul>
+                                    <li style="font-weight: bold; margin-bottom: 0rem;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>Multi-Month Discount
+                                    </li>
+									<li class="text-muted" style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-times"></i></span>Pay With Crypto
+                                    </li>
+                                </ul>
+                                <a href="{% url "purchase" %}" class="btn btn-block btn-primary text-uppercase">Purchase</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-muted text-uppercase text-center">Plan 3</h5>
+                                <h6 class="card-price text-center">$5<span class="period">/month</span></h6>
+                                <hr>
+								<ul class="fa-ul">
+                                    <li style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>Pastebin
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li>
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>Share Publicly</small>
+										</li>
+									</ul>
+									<li style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>URL Shortening
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small><strong>100</strong> Shortened URLs</small>
+										</li>
+										<li>
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>Click Statistics</small>
+										</li>
+									</ul>
+                                    <li style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>Burner Email
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small><strong>25</strong> Email Forwarders</small>
+										</li>
+										<li style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>Send <strong>100</strong> Burner Emails</small>
+										</li>
+										<li>
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>Receive Replies</small>
+										</li>
+									</ul>
+                                    <li style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>Burner Text Messaging
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li>
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small><strong>100</strong> Messages</small>
+										</li>
+									</ul>
+                                    <li style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>VPN
+                                    </li>
+									<ul class="fa-ul" style="margin-top: -1rem; margin-bottom: -1rem;">
+										<li style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small><strong>20</strong> Profiles</small>
+										</li>
+										<li style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>Domestic VPN</small>
+										</li>
+										<li style="margin-bottom: 0rem;">
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>Offshore VPN</small>
+										</li>
+										<li>
+											<span class="fa-li"><small><i class="fas fa-check"></i></small></span><small>Obfuscated Proxy</small>
+										</li>
+									</ul>
+                                    <li style="font-weight: bold; margin-bottom: 0rem;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>Multi-Month Discount
+                                    </li>
+									<li style="font-weight: bold;">
+                                        <span class="fa-li"><i class="fas fa-check"></i></span>Pay With Crypto
+                                    </li>
+                                </ul>
+                                <a href="{% url "purchase" %}" class="btn btn-block btn-primary text-uppercase">Purchase</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="page-section" id="Login">
+            <div class="container-fluid">
+                <div class="row no-gutter">
+                    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+                    <div class="col-md-8 col-lg-6">
+                        <div class="login d-flex align-items-center py-5">
+                            <div class="container">
+                                <div class="row">
+                                    {% if request.user.is_authenticated %}
+                                    <div class="col-md-9 col-lg-8 mx-auto text-center">
+                                        <h3 class="login-heading mb-4">You are logged in!</h3>
+                                        <h3 class="login-heading mb-4">Click <a href="{% url "account" %}">here</a> to access your dashboard.</h3>
+                                    </div>
+                                    {% else %}
+                                    <div class="col-md-9 col-lg-8 mx-auto">
+                                        <h3 class="login-heading mb-4">Welcome back!</h3>
+                                        <form action="." method="post">
+                                            <div class="form-label-group">
+                                                <input type="text" id="id_username" name="username" class="form-control" placeholder="Username" required>
+                                                <label for="id_username">Username</label>
+                                            </div>
+                                            <div class="form-label-group">
+                                                <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
+                                                <label for="id_password">Password</label>
+                                            </div>
+                                            {% csrf_token %}
+                                            <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+                                            <div class="text-center">
+                                                <a class="small" href="{% url "password_reset" %}">Forgot Password</a>
+                                                <a class="small">or</a>
+                                                <a class="small" href="{% url "register" %}">Create an Account</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                        		  	{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <section class="copyright py-4 text-center text-white">
+            <div class="container">
+				<div class="row">
+					<div class="col-lg-3">
+                		<small><a href="{% url "home" %}policies/2/">Terms of Service</a></small>
+					</div>
+					<div class="col-lg-3">
+						<small><a href="{% url "home" %}policies/1/">Privacy Policy</a></small>
+					</div>
+					<div class="col-lg-3">
+                		<small><a href="https://www.signal.org/">Signal: +1 (336) 439-8765</a></small>
+					</div>
+					<div class="col-lg-3">
+                		<small><a href="mailto:Support@Priveasy.org">Support@Priveasy.org</a></small>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4">
+						<small><a href="https://github.com/P5vc/Documentation/blob/master/About/Supporters.md" style="color: #ffffff;">Our Supporters</a></small>
+					</div>
+					<div class="col-lg-4">
+						<small>&copy; 2019-2020 Priveasy.org</small>
+					</div>
+					<div class="col-lg-4">
+						<small><a href="https://github.com/P5vc" style="color: #ffffff;">Our Source Code</a></small>
+					</div>
+				</div>
+				{% if isUsingVPN %}
+				<div class="row">
+					<div class="col-lg-12">
+						<small>Thank you so much for using our VPN!</small>
+					</div>
+				</div>
+				{% endif %}
+            </div>
+        </section>
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+        <div class="scroll-to-top d-lg-none position-fixed ">
+            <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"> <i class="fa fa-chevron-up"></i> </a>
+        </div>
+        <!-- service Modals -->
+        <!-- service Modal 1 -->
+        <div class="service-modal modal fade" id="serviceModal1" tabindex="-1" role="dialog" aria-labelledby="serviceModal1Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"> <i class="fas fa-times"></i> </span>
+                    </button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- service Modal - Title -->
+                                    <h2 class="service-modal-title text-secondary text-uppercase mb-0">VPN</h2>
+                                    <!-- Icon Divider -->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <i class="fas fa-ethernet fa-2x" style="color: #000000;"></i>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- service Modal - Image -->
+                                    <img class="img-fluid rounded mb-5" src="{% static "img/VPNBackground.jpg" %}" alt="">
+                                    <!-- service Modal - Text -->
+                                    <p style="text-align: left;">Undoubtedly the most popular service we offer is our VPN. Built from the ground up with privacy and security in mind, we have one of the fastest and cheapest VPNs out there. When selecting a VPN service, it's crucial to pick one whom you can trust. Priveasy is proud to be the only 100% open source VPN provider out there. What does this mean? It means that we're powered by a whole community of people who have rigorously audited our code, ensuring optimal privacy and security practices. While other VPN providers are forced to hire third party companies to review their code in secret and vouch for them, we're the only VPN provider who <a href="https://github.com/P5vc/">posts our code online</a>, allowing anyone and everyone to review it, contribute to it, and verify <a href="https://github.com/P5vc/Documentation/blob/master/About/About.md#vpn">our claims</a>.</p>
+                                    <p style="text-align: left;">The main VPN protocol we use is WireGuard. Our unique implementation maintains WireGuard's world-class speed and security, and improves upon it, adding features such as quantum resistance and a private LAN for all of your connected devices. Understanding that some of our users live, work, attend school, etc. in places where freedom of speech is often restricted, we also offer a Shadowsocks proxy (and optional v2ray plugin), allowing you to access the open internet from just about any device, anywhere in the world, without having to worry about your connection being blocked.</p>
+									<p style="text-align: left;">As always, our VPN comes with blazing-fast speeds, unlimited bandwidth, and a zero logging policy, so you can browse with peace of mind. When signing up, you have a choice between plan #2 and plan #3. Plan #2 comes with two domestic profiles, which is perfect for a casual user who owns just one or two devices. Plan #3 includes five domestic profiles and five offshore profiles, plus another five Shadowsocks connections (2 of which support v2ray-plugin). This option is the best choice for most people: it allows you to connect many different devices all at once, gives you options over server location, and enables traffic obfuscation, so that you may even connect from some of the most restrictive networks in the world. All of our domestic profiles are based out of the United States and will therefore be the quickest and easiest for a majority of our users. Our offshore profiles are based out of the Netherlands, and allow for activities such as torrenting and streaming, that aren't allowed with our domestic VPN.</p>
+                                    <button class="btn btn-primary" href="#" data-dismiss="modal">
+                                        <i class="fas fa-times fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- service Modal 2 -->
+        <div class="service-modal modal fade" id="serviceModal2" tabindex="-1" role="dialog" aria-labelledby="serviceModal2Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"> <i class="fas fa-times"></i> </span>
+                    </button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- service Modal - Title -->
+                                    <h2 class="service-modal-title text-secondary text-uppercase mb-0">Burner Email</h2>
+                                    <!-- Icon Divider -->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <i class="fas fa-envelope-open-text fa-2x" style="color: #000000;"></i>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- service Modal - Image -->
+                                    <img class="img-fluid rounded mb-5" src="{% static "img/EmailBackground.jpg" %}" alt="">
+                                    <!-- service Modal - Text -->
+                                    <p style="text-align: left;">Our burner email service provides you with unique, alternative email addresses to give out to untrustworthy websites or people. These burner email addresses will automatically forward any emails sent to them to the personal email address of your choice, without ever revealing the final destination. Therefore, should a company with one of these email addresses sell your information or start spamming you, you can simply "burn" (delete) the forwarder, and they'll no longer be able to contact you.</p>
+									<p style="text-align: left;">In addition to the email forwarders, with plans #2 and #3 we also provide the capability to send emails from a burner address. The ability to send emails from an address other than your own can be essential to protecting your privacy online, such as when responding to verification emails from untrustworthy sites, setting-up meetings with online sellers, or simply trying to avoid having your email added to one of the many online spam lists. For those of you with plan #3, you'll notice that you have the added capability to send burner emails from one of your forwarding addresses, allowing you to both send and receive emails from the same burner address.</p>
+                                    <button class="btn btn-primary" href="#" data-dismiss="modal">
+                                        <i class="fas fa-times fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- service Modal 3 -->
+        <div class="service-modal modal fade" id="serviceModal3" tabindex="-1" role="dialog" aria-labelledby="serviceModal3Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"> <i class="fas fa-times"></i> </span>
+                    </button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- service Modal - Title -->
+                                    <h2 class="service-modal-title text-secondary text-uppercase mb-0">Text Messaging</h2>
+                                    <!-- Icon Divider -->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <i class="fas fa-sim-card fa-2x" style="color: #000000;"></i>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- service Modal - Image -->
+                                    <img class="img-fluid rounded mb-5" src="{% static "img/TextMessageBackground.jpg" %}" alt="">
+                                    <!-- service Modal - Text -->
+                                    <p style="text-align: left;">Do you ever need to send yourself or someone else a quick reminder? Need to contact a company or someone you just met online but don't want them having your personal number to spam or sell? With plan #3 you can easily send-out text messages from our number, instead of having to use your own, further preserving your privacy.</p>
+                                    <button class="btn btn-primary" href="#" data-dismiss="modal">
+                                        <i class="fas fa-times fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- service Modal 4 -->
+        <div class="service-modal modal fade" id="serviceModal4" tabindex="-1" role="dialog" aria-labelledby="serviceModal4Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"> <i class="fas fa-times"></i> </span>
+                    </button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- service Modal - Title -->
+                                    <h2 class="service-modal-title text-secondary text-uppercase mb-0">Pastebin</h2>
+                                    <!-- Icon Divider -->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <i class="fas fa-paste fa-2x" style="color: #000000;"></i>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- service Modal - Image -->
+                                    <img class="img-fluid rounded mb-5" src="{% static "img/PastebinBackground.jpg" %}" alt="">
+                                    <!-- service Modal - Text -->
+                                    <p style="text-align: left;">With your account you get up to 100 million characters-worth of free storage space to save notes, code snippets, and anything else, to your heart's content. You can choose to keep these to yourself, or (with plans #2 and #3) post them publicly, and get an immediate link to share with the world.</p>
+                                    <button class="btn btn-primary" href="#" data-dismiss="modal">
+                                        <i class="fas fa-times fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- service Modal 5 -->
+        <div class="service-modal modal fade" id="serviceModal5" tabindex="-1" role="dialog" aria-labelledby="serviceModal5Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"> <i class="fas fa-times"></i> </span>
+                    </button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- service Modal - Title -->
+                                    <h2 class="service-modal-title text-secondary text-uppercase mb-0">URL Shortening</h2>
+                                    <!-- Icon Divider -->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <i class="fas fa-link fa-2x" style="color: #000000;"></i>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- service Modal - Image -->
+                                    <img class="img-fluid rounded mb-5" src="{% static "img/URLShortenerBackground.jpg" %}" alt="">
+                                    <!-- service Modal - Text -->
+                                    <p style="text-align: left;">We at Priveasy are lucky-enough to own a two character domain, allowing us to provide URL shortening services to all of our customers. We can take any long URL, and turn it into the same length (12 characters) as our main URL: Priveasy.org. Those with plan #3 will also have access to click statistics, so they can see just how many times their link has been used.</p>
+                                    <button class="btn btn-primary" href="#" data-dismiss="modal">
+                                        <i class="fas fa-times fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- service Modal 6 -->
+        <div class="service-modal modal fade" id="serviceModal6" tabindex="-1" role="dialog" aria-labelledby="serviceModal6Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"> <i class="fas fa-times"></i> </span>
+                    </button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- service Modal - Title -->
+                                    <h2 class="service-modal-title text-secondary text-uppercase mb-0">Canary</h2>
+                                    <!-- Icon Divider -->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <i class="fas fa-eye-slash fa-2x" style="color: #000000;"></i>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- service Modal - Image -->
+                                    <img class="img-fluid rounded mb-5" src="{% static "img/CanaryBackground.jpg" %}" alt="">
+                                    <!-- service Modal - Text -->
+									<div style="text-align: left;">
+										<pre>
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Priveasy Admin certifies that all Priveasy services ARE completely safe to be used,
+and that no court order, subpoena, or any other form of involvement by a third party has occurred.
+As of today, July 21, 2020, there have been NO known successful hacks or leaks of Priveasy
+services or data, and all of our tripwires have NOT been tripped.
+
+This statement will be due for an update in November.
+If no update is posted in the month of November,
+then you should assume that all data and services have been compromised.
+
+Below you will find three, original links to recent news articles,
+proving that this statement was not signed prior to the date listed.
+
+1.) https://www.bbc.com/news/world-europe-53481542
+2.) https://www.aljazeera.com/news/2020/07/china-fight-uk-suspends-hong-kong-extradition-deal-200721010339774.html
+3.) https://www.nytimes.com/2020/07/20/business/economy/china-sanctions-uighurs-labor.html
+
+Extra comments:
+There are no extra comments.
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEE5X7bH2EckNU1c2aENdx7wYGr6BEFAl8WkB0ACgkQNdx7wYGr
+6BG/bQ//T5dbCtJDbzY8FbYLHPWvNmpu8z4EOwh4IQgSQkcr3iflQprqRxZvNTSR
+d1x2XdCiVzfPx3EJgr91jraH29U7DRU8a5HLlhGGfikV6KuhA/dwOVRxIHI4l0JR
+g4HCuiSTkMwhlqd+Y+OGRMtWNeaPmPoJYcAQZyk+3XoaJNu1fpchrfi6xcTaQhUo
+3S0wbI6ouJTBFiytJCIyAcZ+ytS52vuqlaapR+HCdKou5QdeFwvaUvb729h6KiQq
+fMi/6fwMVHvEQ2UXYl2RVQgJcO3lrfBCAobBG9NHyzWRh2PjyDvP7Y96ABWQidXF
+KjepOqnDZlYQfMx0YwbJh+1+mNY+ejhZ59AIZ8HAxfx2WeWE5X5a3m8QLwRDwAVZ
+svWwVmMn3J4k+K8Is62Shpff0C1n05xzSRgLr2YGPuESBuTjH8GoKmX79yIZDjE+
+cueSgPP5OmpK2HD8GSOM+ClOI8AnPgRWXgRTThS9apyeaZoY9HY+GkAGwqiCero1
+DqnyJDa9PhrUsmjmvmhB06lR9G9gyMA/Kw2jegiqzxZR5PC6zUYagTbajus65970
+W+5mf8Glaib9yp5kOK4+BtjjKDj30aDey4AZt7Ed3XfQc9bPbj27Lqus1uBHXBRI
+s2lGLgNoVfEwLN/bOFSjvgE+wKuJ+uhJqHR9sOPET+JVc5d+W20=
+=lyae
+-----END PGP SIGNATURE-----
+										</pre>
+										<pre>
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: User-ID:	Priveasy &lt;Admin@fwd.Priveasy.org&gt;
+Comment: Created:	5/12/2020 8:10 PM
+Comment: Expires:	5/12/2025 12:00 PM
+Comment: Type:		4096-bit RSA
+Comment: Fingerprint:	E57EDB1F611C90D53573668435DC7BC181ABE811
+
+
+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
+i7VjG6uvuWRG
+=ljOv
+-----END PGP PUBLIC KEY BLOCK-----
+										</pre>
+									</div>
+                                    <button class="btn btn-primary" href="#" data-dismiss="modal">
+                                        <i class="fas fa-times fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="{% static "js/jquery.min.js" %}"></script>
+        <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
+        <script src="{% static "js/jquery.easing.min.js" %}"></script>
+        <script src="{% static "js/home.js" %}"></script>
+    </body>
+</html>
