@@ -1,0 +1,378 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Priveasy</title>
+		<link rel="apple-touch-icon" href="{% static "icons/AppleIcon.png" %}">
+        <link rel="icon" sizes="192x192" href="{% static "icons/GrayscaleIcon.png" %}">
+        <link rel="shortcut icon" href="{% static "icons/ShortcutIcon.png" %}">
+        <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+		<link href="{% static "css/icons.css" %}" rel="stylesheet" type="text/css">
+        <link href="{% static "fonts/VarelaRound.css" %}" rel="stylesheet">
+        <link href="{% static "fonts/Nunito.css" %}" rel="stylesheet">
+        <link href="{% static "css/account.css" %}" rel="stylesheet">
+    </head>
+    <body id="page-top">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top" style="font-family: 'Times New Roman'; text-transform: none;"><img src="{% static "icons/GrayscaleIcon.png" %}" style="width: 50px;"/> Priveasy</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+						{% if hasPlan %}
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#vpn">VPN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#email">Email</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#shortener">URL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#text">Text</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#pastebin">Paste</a>
+                        </li>
+						{% else %}
+						<li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{% url "purchase" %}">Purchase a Plan</a>
+                        </li>
+						{% endif %}
+						<li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{% url "logout" %}">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header -->
+        <header class="masthead">
+            <div class="container d-flex h-100 align-items-center">
+                <div class="mx-auto text-center">
+                    <h1 class="mx-auto my-0 text-uppercase">Priveasy</h1>
+                    <h3 class="text-white-50 mx-auto mt-2 mb-5 lead text-justify"><i>"Arguing that you don't care about the right to privacy because you have nothing to hide is no different than saying you don't care about free speech because you have nothing to say."</i> - Edward Snowden</h3>
+                    <a href="#dashboard" class="btn btn-primary js-scroll-trigger">Get Started</a>
+                </div>
+            </div>
+        </header>
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="about-section text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-white">
+                        <h2 class="text-white mb-4">Welcome to your dashboard, {{ request.user.first_name }}!</h2>
+                        <p class="text-white-50 text-justify">{% if hasPlan %}You currently have plan #{{ request.user.accountcontents.planType }}, which will {% if request.user.accountcontents.autoRenew %}auto-renew within {{ daysLeft }} days.{% else %}expire in {{ daysLeft }} days and {{ hoursLeft }} hours.{% endif %} If at any point you wish to change your payment details, feel free to click on the link below.{% else %}You do not currently have a plan. If you would like to sign up for one, feel free to visit our payment page, <a href="{% url "purchase" %}">here</a>.{% endif %}<br>Now that that's all taken care of, we would just like to take a moment to thank you for your support. Without you, we would never be able to provide this service, and at such a low cost. You are now officially part of our community. If you enjoy using Priveasy, please tell your friends and family all about us. In fact, {% if hasPlan %}if someone else uses your referral code (below), when purchasing their first plan,{% else %}after purchasing a plan, if you get someone else to use the referral code that will appear below,{% endif %} you will each get one additional month of service for free.<br>If at any point you have any feature requests, bugs to point out, questions to ask, etc., don't hesitate to reach out to our support team, or better yet, <a href="https://github.com/P5vc">start some community discussions</a>.</p>
+						{% if hasPlan %}
+						<div class="row">
+						    <div class="col-lg-6 mx-auto text-white">
+						        <h4>Your Referral Code:</h4>
+						        <h1>{{ request.user.accountcontents.referralcode.code }}</h1>
+						    </div>
+						    <div class="col-lg-6 mx-auto text-white">
+						        <h4>Your Purchase Settings:</h4>
+								<h1><a href="{% url "purchase" %}">Payment Details</a></h1>
+						    </div>
+						</div>
+						{% else %}
+						<h1 class="text-center"><a href="{% url "purchase" %}">Purchase a Plan</a></h1>
+						{% endif %}
+                    </div>
+                </div>
+                <img src="{% static "img/Lightbulb.png" %}" alt="" class="img-fluid" style="margin-top: 60px;">
+            </div>
+        </section>
+        <!-- VPN Section -->
+        <section id="vpn" class="vpn-section bg-light">
+            <h1 style="margin-bottom: 5px;" class="text-center font-weight-normal">VPN</h1>{% if request.user.accountcontents.planType < 2 %}
+            <p style="margin-bottom: 20px;" class="text-center font-weight-normal">You must have plan #2 or #3 to use this feature.</p>{% else %}
+			<p style="margin-bottom: 20px;" class="text-center font-weight-normal">Need help installing the VPN? No worries! Click <a href="{% url "home" %}vpn/download/0/">here</a> and we'll email you step-by-step instructions!</p>
+            <div class="container">
+                <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                    <div class="col-xl-8 col-lg-7">
+                        <a href="{% url "home" %}vpn/download/1/"><img class="img-fluid mb-3 mb-lg-0" src="{% static "img/WireGuard.jpg" %}" alt=""></a>
+                    </div>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-center text-lg-left">
+                            <h4>WireGuard</h4>
+                            <p class="mb-0 text-black-50">This is the recommended option. WireGuard is a secure VPN Protocol that's free to <a href="https://www.wireguard.com/install/" target="_blank">download</a> for all operating systems. Click on the image to download your WireGuard configuration file.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                    <div class="col-lg-6">
+                        <a href="{% url "home" %}vpn/download/2/"><img class="img-fluid" src="{% static "img/Apple.jpg" %}" alt=""></a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">Apple Devices</h4>
+                                    <p class="mb-0 text-white-50">If you are using WireGuard on an Apple iPhone/iPad, you may click on the image to directly install the WireGuard VPN profile onto your device. This is often easier than using the configuration file.</p>
+                                    <hr class="d-none d-lg-block mb-0 ml-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center no-gutters">
+                    <div class="col-lg-6">
+                        <a href="{% url "home" %}vpn/download/3/"><img class="img-fluid" src="{% static "img/Shadowsocks.jpg" %}" alt=""></a>
+                    </div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white">Shadowsocks</h4>
+                                    <p class="mb-0 text-white-50">If WireGuard is blocked by your ISP, government, system admin, etc., and you need a covert and/or obfuscated connection, click on the image to be shown Shadowsocks connection information.</p>
+                                    <hr class="d-none d-lg-block mb-0 mr-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div id="panels1" role="tablist">
+					<div class="card" style="margin-top: 20px;">
+						<div class="card-header" role="tab">
+							<h5 class="mb-0"><a data-toggle="collapse" href="#collapse1" aria-expanded="false" aria-controls="collapse1">A Message From Our Network Admin</a></h5>
+						</div>
+						<div id="collapse1" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#panels1">
+							<div class="card-body">
+								Dear Priveasy Users,<br>
+								I would just like to take a moment to remind our users that this VPN service is provided at the lowest cost possible, and built upon the ideals of universal privacy and security. As such — unlike almost every other VPN service out there — we do not monitor our users' traffic. That being said, we also have an obligation to our users to provide them with a stable and fast connection. Therefore, we must remind everyone that sharing their VPN profiles with anyone else is prohibited, as it leads to extra, unexpected traffic on our server, which will slow down everyone else's connections. We also do not permit using our services for anything other than standard internet use. For example, browsing social media, surfing the web, watching YouTube, etc. is all fine. But, running a webserver, starting your own VPN bridged to our connection, creating hotspots or additional networks in which many other users' traffic is filtered through our VPN server, etc. is not allowed. If you wish to engage in activities such as torrenting, movie streaming, etc., please use our offshore server (provided with Plan #3), as we do not allow these activities on our domestic server. Thank you for understanding, and helping to keep our VPN the fastest and cheapest out there!<br>Sincerely,<br>Priveasy Network Admin
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>{% endif %}
+        </section>
+        <!-- Email Section -->
+		<section id="email" class="default-section" style="background-image: url('{% static "img/Volcano.jpg" %}')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-lg-10 mx-auto text-center">
+                        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                        <h2 class="text-white">Email</h2>
+                        <div id="panels3" role="tablist">
+							<div class="card" style="margin-top: 20px;">
+								<div class="card-header" role="tab">
+									<h5 class="mb-0"><a data-toggle="collapse" href="#collapse3" aria-expanded="false" aria-controls="collapse3">{% if hasPlan %}Send an Email{% else %}You must have plan #2 or #3 to use this feature.{% endif %}</a></h5>
+								</div>
+								<div id="collapse3" class="collapse" role="tabpane3" aria-labelledby="headingOne" data-parent="#panels3">
+									<div class="card-body">{% if request.user.accountcontents.planType < 2 %}<p>You must have plan #2 or #3 to use this feature.</p>{% else %}
+                                        <form action="." method="post">
+                                            <p>You have {{ request.user.accountcontents.emailsRemaining }} sends left in this pay period.</p>
+                							<p><select name="sender" id="id_sender" class="form-control">
+                								<option value="Burner" selected>Send From A Random Address</option>
+                								{% if request.user.accountcontents.planType == 3 %}{% for forwarder in forwarderList %}{% if forwarder.verified %}<option value="{{ forwarder.forwarder }}">Send From {{ forwarder.forwarder }}</option>{% endif %}{% endfor %}
+                							</select></p>{% endif %}
+                                            <p><input type="email" name="recipient" required id="id_recipient" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" placeholder="Recipient's Email Address..."></p>
+                                            <p><input type="text" name="subject" maxlength="75" required id="id_subject" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" placeholder="Subject..."></p>
+                                            <p><textarea name="message" cols="40" rows="10" required id="id_message" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" placeholder="Message..."></textarea></p>
+                							{% csrf_token %}
+                                            <button type="submit" class="btn btn-primary mx-auto">Send Email</button>
+                                        </form>{% endif %}
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="panels" role="tablist">
+							<div class="card" style="margin-top: 20px;">
+								<div class="card-header" role="tab">
+									<h5 class="mb-0"><a data-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse">{% if hasPlan %}Your Email Forwarders{% else %}You must have a plan to use this feature.{% endif %}</a></h5>
+								</div>
+								<div id="collapse" class="collapse" role="tabpane" aria-labelledby="headingOne" data-parent="#panels">
+									<div class="card-body">
+										{% if hasForwarders %}{% for forwarder in forwarderList %}
+                                        <div class="container" style="margin-bottom: 20px">
+											<div class="row text-center">
+												<div class="col-lg-4">
+													<p>Burner Email:<br><input type="text" name="forwarder" maxlength="50" id="id_forwarder" value="{{ forwarder.forwarder }}" readonly class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"></p>
+												</div>
+												<div class="col-lg-4">
+													<p>Forward To:<br><input type="text" name="forwarder" maxlength="100" id="id_forwarder" value="{{ forwarder.forwardTo }}" readonly class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"></p>
+												</div>
+												<div class="col-lg-2">
+													<p>Status:<br><button type="button" class="btn btn-primary mx-auto" style="padding: 8px; background-color: {% if forwarder.verified %}#26c926;">Verified{% else %}#c9c926;">Unverified{% endif %}</button></p>
+												</div>
+												<div class="col-lg-2">
+													<form action="." method="post"><p><input type="hidden" name="deleteForwarder" value="{{ forwarder.forwarder }}"><br><button type="submit" class="btn btn-primary mx-auto" style="background-color: #ca2727; padding: 10px;">Delete</button></p>{% csrf_token %}</form>
+												</div>
+											</div>
+										</div>
+										{% endfor %}
+                                        <div class="container" style="margin-bottom: 20px">
+											<div class="row text-center">
+    												<div class="col-lg-8">
+    													<form action="." method="post"><p>Verification Token:<br><input type="text" name="token" maxlength="40" id="id_token" value="" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"></p>
+    												</div>
+    												<div class="col-lg-4">
+    													<p><br><button type="submit" class="btn btn-primary mx-auto" style="padding: 10px;">Submit</button></p>{% csrf_token %}
+    												</div>
+    											</form>
+											</div>
+										</div>
+                                        {% else %}
+										<p class="text-center">You do not have any email forwarders.</p>
+										{% endif %}
+									</div>
+								</div>
+							</div>
+						</div>{% if hasPlan %}
+						<div style="margin-top: 20px">
+	                        <form action="." method="post">
+                                <h5 class="text-white">Create a Forwarder:</h5>
+	                            <p><input type="text" name="forwarder" maxlength="100" required id="id_forwarder" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" placeholder="Email to forward to..."></p>
+								{% csrf_token %}
+	                            <button type="submit" class="btn btn-primary mx-auto">Add Forwarder</button>
+	                        </form>
+						</div>{% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+		<!-- Shortener Section -->
+		<section id="shortener" class="default-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-lg-10 mx-auto text-center">
+                        <i class="fas fa-link fa-2x mb-2 text-white"></i>
+                        <h2 class="text-white">Shorten a URL</h2>
+						<div id="panels2" role="tablist">
+							<div class="card" style="margin-top: 20px;">
+								<div class="card-header" role="tab">
+									<h5 class="mb-0"><a data-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapse2">{% if hasPlan %}Your Shortened URLs{% else %}You must have a plan to use this feature.{% endif %}</a></h5>
+								</div>
+								<div id="collapse2" class="collapse" role="tabpane2" aria-labelledby="headingOne" data-parent="#panels2">
+									<div class="card-body">
+										{% if hasURLs %}{% for url in urlList %}
+										<div class="container" style="margin-bottom: 20px">
+											<div class="row text-center">
+												<div class="col-lg-4">
+													<p>Original URL:<br><input type="text" name="url" maxlength="2000" id="id_url" value="{{ url.destinationURL }}" readonly class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"></p>
+												</div>
+												<div class="col-lg-4">
+													<p>Shortened URL:<br><input type="text" name="url" maxlength="2000" id="id_url" value="https://p5.vc/{{ url.slug }}" readonly class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"></p>
+												</div>
+												<div class="col-lg-2">
+													<p>Clicks:<br><input type="text" name="url" maxlength="2000" id="id_url" value="{% if request.user.accountcontents.planType == 3 %}{{ url.clicks }}{% else %}N.A.{% endif %}" readonly class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"></p>
+												</div>
+												<div class="col-lg-2">
+													<form action="." method="post"><p><input type="hidden" name="deleteURL" value="{{ url.slug }}"><br><button type="submit" class="btn btn-primary mx-auto" style="background-color: #ca2727; padding: 10px;">Delete</button></p>{% csrf_token %}</form>
+												</div>
+											</div>
+										</div>
+										{% endfor %}{% else %}
+										<p class="text-center">You do not have any shortened URLs.</p>
+										{% endif %}
+									</div>
+								</div>
+							</div>
+						</div>{% if hasPlan %}
+						<div style="margin-top: 20px">
+	                        <form action="." method="post">
+	                            <p><input type="text" name="url" maxlength="2000" required id="id_url" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" placeholder="URL to shorten..."></p>
+								{% csrf_token %}
+	                            <button type="submit" class="btn btn-primary mx-auto">Shorten</button>
+	                        </form>
+						</div>{% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Text Section -->
+		<section id="text" class="default-section" style="background-image: url('{% static "img/SkitterPhoto.jpg" %}');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-lg-8 mx-auto text-center">
+                        <i class="far fa-comments fa-2x mb-2 text-white"></i>
+                        <h2 class="text-white">Send a Text</h2>
+						{% if request.user.accountcontents.planType == 3 %}<h4 class="text-white mb-5">You have {{ request.user.accountcontents.textsRemaining }} texts remaining in this pay period.</h4>
+                        <form action="." method="post">
+                            <p><input type="text" name="recipientNumber" maxlength="11" required id="id_recipientnumber" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" placeholder="Complete U.S. Phone Number..."></p>
+                            <p><textarea name="message" maxlength="140" cols="40" rows="10" required id="id_message" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" placeholder="Message (140 Character Limit)..."></textarea></p>
+							{% csrf_token %}
+                            <button type="submit" class="btn btn-primary mx-auto">Send Message</button>
+                        </form>
+                        {% else %}<h4 class="text-white mb-5">You must have plan #3 to use this feature.</h4>{% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+		<!-- Pastebin Section -->
+        <section id="pastebin" class="standard-section bg-black" style="padding: 0rem 0 0;">
+            <header>
+                <div id="carouselIndicators2" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+						{% if hasPlan %}
+						{% for num in pasteSlideList %}
+						<li data-target="#carouselIndicators2" data-slide-to="{{ num }}"{% if num == 0 %} class="active"{% endif %}></li>
+						{% endfor %}
+						{% else %}
+						<li data-target="#carouselIndicators2" data-slide-to="0" class="active"></li>
+						{% endif %}
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+						{% if hasPlan %}
+						{% for paste in pasteList %}
+                        <div class="carousel-item{% if forloop.counter == 1 %} active{% endif %}" style="background-image: url('{% static "img/Stone.jpg" %}'); margin-top: 0px;">
+                            <div class="text-white text-center container col-md-6 col-lg-5 mx-auto">
+                                <h3 class="display-4">Pastebin</h3>
+								{% if paste.public %}
+									<p>This paste may be accessed publicly with <a href="{% url "home" %}paste/{{ paste.pasteID }}">this link</a>.<p>
+								{% else %}
+                                <p>This paste is private, and may not be accessed publicly.</p>
+								{% endif %}
+								<form action="." method="post">
+									<input type="hidden" name="pasteID" value="{{ paste.pasteID }}">
+									<p><select name="public" id="id_public" class="form-control">
+										<option value="0"{% if not paste.public %} selected{% endif %}>Private Paste</option>
+										<option value="1"{% if paste.public %} selected{% endif %}>Public Paste</option>
+									</select></p>
+		                            <p><textarea name="paste" maxlength="1000000" cols="40" rows="10" id="id_paste" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" placeholder="Start a new paste here...">{{ paste.contents }}</textarea></p>
+									{% csrf_token %}
+									<button type="submit" class="btn btn-primary mx-auto">Save</button>
+								</form>
+                            </div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <p class="lead">Page #{{ forloop.counter }}</p>
+                            </div>
+                        </div>
+						{% endfor %}
+						{% else %}
+						<div class="carousel-item active" style="background-image: url('{% static "img/Stone.jpg" %}'); margin-top: 0px;">
+                            <div class="text-white text-center">
+                                <h3 class="display-4">Pastebin</h3>
+								<p class="lead">You must have a plan to use this service.</p>
+                            </div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <p class="lead">Page #1</p>
+                            </div>
+                        </div>
+						{% endif %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselIndicators2" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+                    <a class="carousel-control-next" href="#carouselIndicators2" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+                </div>
+            </header>
+        </section>
+		<!-- Footer -->
+        <footer class="bg-black small text-center text-white-50" style="padding: 2rem 0;">
+            <div class="container">&copy; 2019-2020 Priveasy.org</div>
+        </footer>
+        <script src="{% static "js/jquery.min.js" %}"></script>
+        <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
+        <script src="{% static "js/jquery.easing.min.js" %}"></script>
+        <script src="{% static "js/account.js" %}"></script>
+    </body>
+</html>
