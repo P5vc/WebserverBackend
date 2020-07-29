@@ -32,15 +32,13 @@ def home(request):
 
 		ipAddr = request.META['REMOTE_ADDR']
 		host = request.META['HTTP_HOST']
-		knownTor = False
-		if (host == 'priveasy6qxoehbhq5nxcxv35y6el73hpzpda7wgtnfe5qaspemtl6qd.onion'):
-			knownTor = True
+
 		if (len(VPNServer.objects.filter(serverIP = ipAddr)) == 1):
 			isUsingVPN = True
 		else:
 			isUsingVPN = False
 
-		return render(request , 'home.html' , {'isUsingVPN' : isUsingVPN , 'knownTor' : knownTor})
+		return render(request , 'home.html' , {'isUsingVPN' : isUsingVPN})
 
 	elif (request.method == 'POST'):
 		form = LoginForm(request.POST)
