@@ -1054,13 +1054,13 @@ def policies(request , slug = ''):
 
 	if (slug == '1'):
 		pageStatsObj = Stats.objects.get(id = 1)
-                pageStatsObj.privacyPolicyViews += 1
-                pageStatsObj.save()
+		pageStatsObj.privacyPolicyViews += 1
+		pageStatsObj.save()
 		return render(request , 'policies/PrivacyPolicy.html' , {})
 	elif (slug == '2'):
 		pageStatsObj = Stats.objects.get(id = 1)
-                pageStatsObj.termsViews += 1
-                pageStatsObj.save()
+		pageStatsObj.termsViews += 1
+		pageStatsObj.save()
 		return render(request , 'policies/TermsOfService.html' , {})
 	else:
 		pageStatsObj = Stats.objects.get(id = 1)
