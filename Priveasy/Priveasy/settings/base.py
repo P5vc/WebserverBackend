@@ -80,8 +80,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Priveasy.wsgi.application'
 
 
-# Database
+# Databases
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
+
+DATABASE_ROUTERS = ['Priveasy.databaseRouter.Router']
 
 DATABASES = {
     'default': {
@@ -89,7 +91,18 @@ DATABASES = {
         'NAME': 'priveasydb',
         'USER': 'priveasyuser',
         'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
+        'HOST': env('BASE_DATABASE_HOST'),
+        'PORT': env('DATABASE_PORT'),
+        'OPTIONS': {
+            'sslmode': 'require'
+        }
+    },
+    'duplicate': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'priveasydb',
+        'USER': 'priveasyuser',
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DUPLICATE_DATABASE_HOST'),
         'PORT': env('DATABASE_PORT'),
         'OPTIONS': {
             'sslmode': 'require'
