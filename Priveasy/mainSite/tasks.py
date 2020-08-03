@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from celery.decorators import task , periodic_task
 from celery.task.schedules import crontab
-import kronos , stripe , environ
+import kronos , stripe
 from twilio.rest import Client
 from .models import *
 from math import ceil as roundUp
@@ -51,10 +51,6 @@ def sendEmail(subject , message , sentFrom , sendTo , attach = False , attachmen
 
 @task(name = 'sendText')
 def sendText(number , message):
-	# Read the .env file:
-	env = environ.Env()
-	environ.Env.read_env()
-
 	client = Client(settings.twilioAccountSID , settings.twilioAuthToken)
 	client.messages.create(to = number , from_ = '+13364398765' , body = message)
 
@@ -225,6 +221,9 @@ def cleanup():
 
 @kronos.register('0 0 * * *')
 def maintenance():
+	if (not(settings.serverGeneration == 'Base')):
+		return
+
 	stripe.api_key = settings.stripeAPIKey
 
 	userObjsList = User.objects.all()

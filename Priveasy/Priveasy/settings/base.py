@@ -202,3 +202,6 @@ twilioAuthToken = env('TWILIO_AUTH_TOKEN')
 
 # Stripe
 stripeAPIKey = env('STRIPE_API_KEY')
+
+# Server Generation
+serverGeneration = env('SERVER_GENERATION')
