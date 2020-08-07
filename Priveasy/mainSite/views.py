@@ -321,7 +321,7 @@ def purchase(request):
 
 	elif (request.method == 'POST'):
 		try:
-			stripe.api_key = settings.stripeAPIKey
+			stripe.api_key = settings.STRIPE_API_KEY
 
 			autoRenewExists = True
 			try:

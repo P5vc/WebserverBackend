@@ -51,7 +51,7 @@ def sendEmail(subject , message , sentFrom , sendTo , attach = False , attachmen
 
 @task(name = 'sendText')
 def sendText(number , message):
-	client = Client(settings.twilioAccountSID , settings.twilioAuthToken)
+	client = Client(settings.TWILIO_ACCOUNT_SID , settings.TWILIO_AUTH_TOKEN)
 	client.messages.create(to = number , from_ = '+13364398765' , body = message)
 
 
@@ -221,10 +221,10 @@ def cleanup():
 
 @kronos.register('0 0 * * *')
 def maintenance():
-	if (not(settings.serverGeneration == 'Base')):
+	if (not(settings.SERVER_GENERATION == 'Base')):
 		return
 
-	stripe.api_key = settings.stripeAPIKey
+	stripe.api_key = settings.STRIPE_API_KEY
 
 	userObjsList = User.objects.all()
 	for user in userObjsList:
