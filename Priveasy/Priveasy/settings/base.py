@@ -204,17 +204,17 @@ CELERY_TASK_TIME_LIMIT = 3600
 ZCASH_WALLET_ENCRYPTION_KEY = env('ZCASH_WALLET_ENCRYPTION_KEY').encode('utf-8')
 
 # Final, hardware address to send received payments to:
-PRIVEASY_ZCASH_ADDRESS = b't1VXoLAYQU8EzSzVYTJSL6pqWkLshpazDCa'
+PRIVEASY_ZCASH_ADDRESS = env('PRIVEASY_ZCASH_ADDRESS').encode('utf-8')
 
 # Tor
 HOST_SCHEME_ALWAYS_HTTPS = ['priveasy6qxoehbhq5nxcxv35y6el73hpzpda7wgtnfe5qaspemtl6qd.onion']
 
 # Twilio
-twilioAccountSID = env('TWILIO_ACCOUNT_SID')
-twilioAuthToken = env('TWILIO_AUTH_TOKEN')
+TWILIO_ACCOUNT_SID = env('TWILIO_ACCOUNT_SID')
+TWILIO_AUTH_TOKEN = env('TWILIO_AUTH_TOKEN')
 
 # Stripe
-stripeAPIKey = env('STRIPE_API_KEY')
+STRIPE_API_KEY = env('STRIPE_API_KEY')
 
 # Server Generation
-serverGeneration = env('SERVER_GENERATION')
+SERVER_GENERATION = env('SERVER_GENERATION')
