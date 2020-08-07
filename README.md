@@ -11,3 +11,4 @@ If upgrading the already-existent backend on a Priveasy webserver, do the follow
 - Run the following command as user `ubuntu`: `cd /home/ubuntu && sudo rm -rf ATTRIBUTION README.md LICENSE Priveasy priveasyVPN && git clone https://github.com/P5vc/WebserverBackend.git && mv WebserverBackend/* ./ && rm -rf WebserverBackend`.
 - Replace the `/home/ubuntu/Priveasy/Priveasy/settings/.env` file with the properly backed-up version, and make any adjustments for entries that may have been added in the new update.
 - Run `source /home/ubuntu/priveasyEnv/bin/activate && python Priveasy/manage.py collectstatic && python Priveasy/manage.py makemigrations && python Priveasy/manage.py migrate` then follow any prompts that may appear. If new migrations were applied, commit those to this repository.
+- Reboot the server.
