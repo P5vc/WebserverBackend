@@ -1,0 +1,449 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Priveasy Terms of Service</title>
+	<link rel="icon" sizes="192x192" href="{% static "icons/Icon.png" %}">
+	<style>
+		/* This stylization has been derived from StackEdit: https://github.com/benweet/stackedit*/
+		.markdownFormat {
+		margin-bottom: 180px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 30px;
+		padding-right: 30px;
+		max-width: 750px;
+		}
+		html {
+		line-height: 1.15;
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%
+		}
+		body {
+		margin: 0;
+		}
+		article, aside, footer, header, nav, section {
+		display: block;
+		}
+		h1 {
+		font-size: 2em;
+		margin: .67em 0;
+		}
+		figcaption, figure {
+		display: block;
+		}
+		figure {
+		margin: 1em 40px;
+		}
+		hr {
+		box-sizing: content-box;
+		height: 0;
+		overflow: visible;
+		}
+		main {
+		display: block;
+		}
+		pre {
+		font-family: monospace, monospace;
+		font-size: 1em;
+		}
+		a {
+		background-color: transparent;
+		-webkit-text-decoration-skip: objects;
+		}
+		abbr[title] {
+		border-bottom: none;
+		text-decoration: underline;
+		text-decoration: underline dotted;
+		}
+		b, strong {
+		font-weight: inherit;
+		font-weight: bolder;
+		}
+		code, kbd, samp {
+		font-family: monospace, monospace;
+		font-size: 1em;
+		}
+		dfn {
+		font-style: italic;
+		}
+		mark {
+		background-color: #ff0;
+		color: #000;
+		}
+		small {
+		font-size: 80%}
+		sub, sup {
+		font-size: 75%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+		}
+		sub {
+		bottom: -.25em;
+		}
+		sup {
+		top: -.5em;
+		}
+		audio, video {
+		display: inline-block;
+		}
+		audio:not([controls]) {
+		display: none;
+		height: 0;
+		}
+		img {
+		border-style: none;
+		}
+		svg:not(:root) {
+		overflow: hidden;
+		}
+		button, input, optgroup, select, textarea {
+		font-family: sans-serif;
+		font-size: 100%;
+		line-height: 1.15;
+		margin: 0;
+		}
+		button {
+		overflow: visible;
+		}
+		button, select {
+		text-transform: none;
+		}
+		[type=reset], [type=submit], button, html [type=button] {
+		-webkit-appearance: button;
+		}
+		[type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner, button::-moz-focus-inner {
+		border-style: none;
+		padding: 0;
+		}
+		[type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring, button:-moz-focusring {
+		outline: 1px dotted ButtonText;
+		}
+		input {
+		overflow: visible;
+		}
+		[type=checkbox], [type=radio] {
+		box-sizing: border-box;
+		padding: 0;
+		}
+		[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+		height: auto;
+		}
+		[type=search] {
+		-webkit-appearance: textfield;
+		outline-offset: -2px;
+		}
+		[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
+		-webkit-appearance: none;
+		}
+		::-webkit-file-upload-button {
+		-webkit-appearance: button;
+		font: inherit;
+		}
+		fieldset {
+		padding: .35em .75em .625em;
+		}
+		legend {
+		box-sizing: border-box;
+		display: table;
+		max-width: 100%;
+		padding: 0;
+		color: inherit;
+		white-space: normal;
+		}
+		progress {
+		display: inline-block;
+		vertical-align: baseline;
+		}
+		textarea {
+		overflow: auto;
+		}
+		details {
+		display: block;
+		}
+		summary {
+		display: list-item;
+		}
+		menu {
+		display: block;
+		}
+		canvas {
+		display: inline-block;
+		}
+		[hidden], template {
+		display: none;
+		}
+		body, html {
+		color: rgba(0, 0, 0, .75);
+		font-size: 16px;
+		font-family: Lato, Helvetica Neue, Helvetica, sans-serif;
+		font-variant-ligatures: common-ligatures;
+		line-height: 1.67;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		}
+		blockquote, dl, ol, p, pre, ul {
+		margin: 1.2em 0;
+		}
+		h1, h2, h3, h4, h5, h6 {
+		margin: 1.8em 0;
+		line-height: 1.33;
+		}
+		h1:after, h2:after {
+		content: "";
+		display: block;
+		position: relative;
+		top: .33em;
+		border-bottom: 1px solid hsla(0, 0%, 50%, .33);
+		}
+		ol ol, ol ul, ul ol, ul ul {
+		margin: 0;
+		}
+		dt {
+		font-weight: 700;
+		}
+		a {
+		color: #0c93e4;
+		text-decoration: underline;
+		text-decoration-skip: ink;
+		}
+		a:focus, a:hover {
+		text-decoration: none;
+		}
+		code, pre, samp {
+		font-family: Roboto Mono, Lucida Sans Typewriter, Lucida Console, monaco, Courrier, monospace;
+		font-size: .85em;
+		}
+		code *, pre *, samp * {
+		font-size: inherit;
+		}
+		blockquote {
+		color: rgba(0, 0, 0, .5);
+		padding-left: 1.5em;
+		border-left: 5px solid rgba(0, 0, 0, .1);
+		}
+		code {
+		background-color: rgba(0, 0, 0, .05);
+		border-radius: 3px;
+		padding: 2px 4px;
+		}
+		hr {
+		border: 0;
+		border-top: 1px solid hsla(0, 0%, 50%, .33);
+		margin: 2em 0;
+		}
+		pre>code {
+		background-color: rgba(0, 0, 0, .05);
+		display: block;
+		padding: .5em;
+		-webkit-text-size-adjust: none;
+		overflow-x: auto;
+		white-space: pre;
+		}
+		table {
+		background-color: transparent;
+		border-collapse: collapse;
+		border-spacing: 0;
+		}
+		td, th {
+		border-right: 1px solid #dcdcdc;
+		padding: 8px 12px;
+		}
+		td:last-child, th:last-child {
+		border-right: 0;
+		}
+		td {
+		border-top: 1px solid #dcdcdc;
+		}
+		mark {
+		background-color: #f8f840;
+		}
+		kbd {
+		font-family: Lato, Helvetica Neue, Helvetica, sans-serif;
+		background-color: #fff;
+		border: 1px solid rgba(63, 63, 63, .25);
+		border-radius: 3px;
+		box-shadow: 0 1px 0 rgba(63, 63, 63, .25);
+		color: #333;
+		display: inline-block;
+		font-size: .8em;
+		margin: 0 .1em;
+		padding: .1em .6em;
+		white-space: nowrap;
+		}
+		abbr[title] {
+		border-bottom: 1px dotted #777;
+		cursor: help;
+		}
+		img {
+		max-width: 100%
+		}
+	</style>
+</head>
+<body>
+	<div class="markdownFormat">
+		<h1>Terms of Service</h1>
+		<h3>Last Updated on August 20, 2020</h3>
+		<p>These terms of service (the “Terms”) govern your (the “user”) access to and use of Priveasy services. Read these Terms carefully and be sure that you (the “user”) fully understand them before registering for, downloading, interacting with, or using Priveasy services or infrastructure. “Priveasy services” include any software, applications, web applications, or any other service provided by Priveasy (“we,” “us,” “our,” “<a href="http://P5.vc">P5.vc</a>,” “<a href="http://Priveasy.org">Priveasy.org</a>,” or “Priveasy”) to its visitors/users (the “users”). The Terms constitute a binding legal agreement (“Agreement” or “Terms”) between the user and Priveasy, which includes an individual arbitration and class action waiver. By visiting our website, installing our software, registering for an account with us, using our services, and/or interacting with Priveasy or its infrastructure in any way, you agree to be bound by these Terms. Priveasy only allows use of its services under these Terms. If you do not agree with these Terms, or any of the included provisions, as outlined in this document and within Priveasy services, please do not use any of our products or services (“Priveasy services”), as outlined above.</p>
+		<blockquote>
+			<p>Plain English: You must agree to our Terms in order to use any Priveasy services. If you do not agree to our Terms, then you may not use any Priveasy services.</p>
+		</blockquote>
+		<p>If you are using Priveasy services on behalf of an organization, company, group, entity, or person other than yourself, you are acknowledging that you have the authority to act on behalf of that organization, company, group, entity, or person, and are agreeing to these Terms on their behalf.</p>
+		<blockquote>
+			<p>Plain English: If not acting on your own behalf when using Priveasy, make sure that you have the legal right to accept these Terms on behalf of the entity that you are representing. If not, then you may not use Priveasy services.</p>
+		</blockquote>
+		<p>Priveasy grants you permission to use Priveasy services, under the condition that you abide by all provisions, restrictions, conditions, and warnings set forth in these Terms.</p>
+		<blockquote>
+			<p>Plain English: You have permission to use Priveasy services, as long as you agree to these Terms.</p>
+		</blockquote>
+		<p>Subject to these Terms, we grant you a limited, non-exclusive, personal, nontransferable, non-sublicensable, revocable license to download and use any Priveasy software, as well as use any Priveasy services that come with your account. No other right or license of any kind is granted to you with respect to Priveasy services. The license provided is effective until terminated. This license automatically terminates if you do not comply with these Terms.</p>
+		<blockquote>
+			<p>Plain English: We give you permission to use Priveasy services, as long as you adhere to these Terms.</p>
+		</blockquote>
+		<p>The Terms contained herein and any rights and licenses granted hereunder, may not be transferred or assigned by you, but may be assigned by Priveasy without restriction.</p>
+		<blockquote>
+			<p>Plain English: You may not transfer, assign, or bind these Terms to someone else.</p>
+		</blockquote>
+		<p>By using Priveasy services, you represent and warrant that all of the identifying information provided Priveasy is accurate and current and you have all necessary right, power, and authority to enter into this Agreement and to perform the acts required of you hereunder.</p>
+		<blockquote>
+			<p>Plain English: You must provide us with accurate information and affirm that you have the right to enter into this Agreement with us.</p>
+		</blockquote>
+		<p>You shall not take any action to jeopardize, limit, or interfere in any manner with our ownership of and rights with respect to Priveasy or Priveasy services. All rights are reserved unless otherwise noted.</p>
+		<blockquote>
+			<p>Plain English: Do not try to rob Priveasy of its rights.</p>
+		</blockquote>
+		<p>Priveasy services are designed to increase the privacy and security of the user. We do not condone nor allow for the unlawful use of Priveasy services. Priveasy services may not be used for any criminal, illicit, or illegal acts, and by using Priveasy services, you agree not to violate any law of any jurisdiction that you are originating from, or any other applicable law. It is the user’s responsibility to know, fully understand, and abide by all relevant and applicable laws, regulations, and policies relating to any jurisdiction or venue that concerns or has authority over the user, the user’s actions, and/or the user’s use of Priveasy services.</p>
+		<blockquote>
+			<p>Plain English: You may not use Priveasy services to break any laws, regulations, policies, rules, etc. that apply to you.</p>
+		</blockquote>
+		<p>By using Priveasy services, the user agrees to have read and understand all important information provided by Priveasy, including all said general provisions incorporated by reference. This information includes but is not limited to these Terms, as found within this document, and our Privacy Policy.</p>
+		<blockquote>
+			<p>Plain English: Make sure to read and understand all important information provided by Priveasy.</p>
+		</blockquote>
+		<p>These Terms may be modified on occasion. It is the responsibility of the user to check for updates periodically, as any new Terms are binding from the moment they are published on our website. Any changes to our Terms may also be communicated to you through email or via our website.</p>
+		<blockquote>
+			<p>Plain English: Make sure to consistently check these Terms, as they may change at any time, and you must always agree to the latest version before using our services. We will do our best to notify you of any changes.</p>
+		</blockquote>
+		<p>Priveasy services include digital communication services designed to improve the privacy and security of our users. At your sole discretion we provide services which include but are not limited to a virtual private network connection, email forwarding and sending, URL shortening, a pastebin, and text messaging. Priveasy does its best to limit or eliminate all forms of logging, tracking, analytics, and data collection of its users. As such, you are solely and exclusively responsible for your use of Priveasy services. You agree to use Priveasy services at your own risk. Priveasy will not be liable in any way, shape, or form for any actions carried-out by its users, including, but not limited to, criminal liability and civil liability for harm executed or not executed. Priveasy liability is further limited by other provisions found within these Terms.</p>
+		<blockquote>
+			<p>Plain English: We offer many services which you may choose to use or not to use. If you choose to use a service, you agree to use it at your own risk, and to not hold Priveasy liable for anything that occurs as a result of using said service.</p>
+		</blockquote>
+		<p>Priveasy services may be changed, eliminated, updated, modified, interrupted, suspended, or blocked at any time without notice or liability. We do not bear any liability for any harm or other adverse consequences to you, as a result of the aforementioned possibilities. Priveasy, Priveasy’s developers and contributors, or anyone in relation to Priveasy are not in any way, shape, or form liable for any harm of any kind, executed or not executed, resulting from or arising through the use of any account registered with Priveasy services.</p>
+		<blockquote>
+			<p>Plain English: Priveasy services may be changed, interrupted, or removed at any time. You may not hold us responsible for any adverse effects caused by the modification of Priveasy services.</p>
+		</blockquote>
+		<p>Priveasy only allows for a limited number of VPN connections per user account with VPN access. Priveasy does not allow the sharing of account information or data with others, this includes, but is not limited to, giving anyone other than the registered user access to any Priveasy services. No illegal activities are allowed at any point with any VPN profile/account/connection. No activities are allowed at any point with any Priveasy services that could get Priveasy infrastructure (such as a Priveasy server’s IP address) or content blocked, blacklisted, or added to a spam filter. “Domestic” VPN connections have further restrictions. No torrenting, movie streaming, or other activities not explicitly illegal, but oftentimes done in an illegal fashion or associated with illegal activities, may be participated-in with the Priveasy “Domestic” VPN. These activities are only allowed on our “Offshore” VPN server, as long as no other provisions or restrictions outlined within these Terms are violated by doing so.</p>
+		<blockquote>
+			<p>Plain English: Don’t share your VPN connection information with others. Don’t do any illegal activities while using the VPN or by using the VPN. Be mindful of the further restrictions placed on Domestic VPN accounts (as listed above and on your “Account” page, in the VPN section).</p>
+		</blockquote>
+		<p>Priveasy shall not be liable for any loss, including, but not limited to, monetary or non-monetary harm valued beyond what the user paid to Priveasy, and this shall not include attorney fees or court costs irrespective of any laws or statutes that prescribe otherwise.</p>
+		<blockquote>
+			<p>Plain English: Priveasy is not responsible for compensating any loss or harm caused, valued beyond what the user paid to us.</p>
+		</blockquote>
+		<p>Priveasy does not condone or endorse any unlawful, illicit, criminal or fraudulent activities perpetrated by using Priveasy services. Priveasy reserves the right to suspend or terminate any account proven to, suspected of, or accused of violating the Terms. Priveasy may also terminate any account for any reason, or no reason at all. Accounts that have no active plan and have been inactive for thirty days or more will be terminated automatically, and all user data will be deleted from our servers.</p>
+		<blockquote>
+			<p>Plain English: Priveasy may terminate your account for any reason or no reason at all.</p>
+		</blockquote>
+		<p>We reserve the right to refuse service or limit access to Priveasy services to anyone, in our sole discretion, and/or without any indication, notice, or refund.</p>
+		<blockquote>
+			<p>Plain English: At any point we may limit access to Priveasy services, or refuse service entirely, to anyone.</p>
+		</blockquote>
+		<p>You must be at least 18 years of age, a valid legal entity, or an emancipated minor, or possess legal parental or guardian consent, and are fully able and competent-enough to enter into the terms, conditions, obligations, affirmations, representations, and warranties set forth in these Terms, in order to use Priveasy services. You may not use any Priveasy services if you are a minor, business competitor, have had your account terminated for any reason other than automatic termination (which occurs after 30 days of inactivity), or if your account has been suspended for any reason.</p>
+		<blockquote>
+			<p>Plain English: You must be of legal age to use Priveasy services. You must be legally able to accept and abide by these Terms. You may only use Priveasy services if in good faith (i.e. you haven’t been previously banned, aren’t a competitor, etc.)</p>
+		</blockquote>
+		<p>If you are not a legal adult, you must receive permission from a parent or legal guardian to use Priveasy services. If you are between the ages of 13 and 17, then you must have a legal parent or guardian purchase, activate, and set up Priveasy services for you and on your behalf. If you are under the age of 13, you are not permitted to use Priveasy services.</p>
+		<blockquote>
+			<p>Plain English: If you are under the age of 13, you may not use Priveasy services. If you are over the age of 13, yet not a legal adult, you must get the permission of your legal guardian, and have them set up Priveasy services on your behalf.</p>
+		</blockquote>
+		<p>You may choose to pay for Priveasy services manually, or sign up for auto renew. If you sign up for auto renew, your provided payment method will be automatically recharged within a one week period from the end of your plan. By signing up for auto renew, you acknowledge that Priveasy will register you as a customer with Stripe, our payment processor. Credit/Debit card payments made manually will also be processed through stripe, although a customer ID will not be assigned to your account. You may cancel auto renew at any point, and your customer account will be removed from Stripe. By paying for Priveasy services, you acknowledge that information you provide, including but not limited to your name, email address, credit card information, and IP address, may be sent to or collected by Stripe. By paying for Priveasy services, you also acknowledge that you have read and agreed to Stripe’s services agreement, and any other applicable policies or information provided on their website.</p>
+		<blockquote>
+			<p>Plain English: If paying by credit/debit card, we will have to send some of your information to our payment processor. By agreeing to these Terms you consent to this.</p>
+		</blockquote>
+		<p>Priveasy does not guarantee any refunds. By paying for Priveasy services, you agree that Priveasy services, or your Priveasy account, may be terminated before your plan expires, and no refund may be issued. Priveasy processes refunds on a case-by-case basis. To request a refund, please contact our support.</p>
+		<blockquote>
+			<p>Plain English: Refunds are not guaranteed.</p>
+		</blockquote>
+		<p>Your access to and use of the Priveasy services is subject to these Terms and all applicable laws and regulations. We reserve the right, at any time, in our sole discretion, with or without notice, to terminate the accounts of, and block access to Priveasy services for, any users who violate any applicable laws or these Terms.</p>
+		<blockquote>
+			<p>Plain English: If you violate the law or these Terms, we may terminate your account without notice.</p>
+		</blockquote>
+		<p>You agree not to use Priveasy services, or assist, encourage, or enable others to use Priveasy services:</p>
+		<ul>
+		<li>for illegal, unlawful, illicit, criminal, or fraudulent activities;</li>
+		<li>to assault, interfere with, gain unauthorized access to, or deny service in any way to any other network;</li>
+		<li>to exploit children in any way, including any sexually explicit audio, video, photography, or digital content that depicts children;</li>
+		<li>to distribute in any way files that contain illegal material or data that may damage another’s computer or modify its contents without the explicit consent of its owner;</li>
+		<li>to interfere with or attempt to interfere with the proper working of Priveasy services or any other activities conducted by us, including, but not limited to, disrupting our website, servers, or connections with clients;</li>
+		<li>to bypass any measures we may take to protect user data or prevent unauthorized access to our servers or Priveasy services;</li>
+		<li>to exploit Priveasy services in any unauthorized way, including but not limited to unreasonably burdening network bandwidth;</li>
+		<li>to use any form of robot, scraper, spider, or other automated service in conjunction with Priveasy services;</li>
+		<li>to take any action that imposes or may impose an unreasonable or disproportionately large load on our infrastructure;</li>
+		<li>to dishonestly represent that you are an agent, representative, employee, contributor, or somehow affiliated with Priveasy services, or any part of its functionality;</li>
+		<li>to incorporate any part of Priveasy services into any other program or product;</li>
+		<li>to violate any third party’s rights, including any breach of confidence, personal data, copyright, or any other intellectual property or right;</li>
+		<li>to threaten, stalk, harm, or harass others, or promote bigotry or discrimination;</li>
+		<li>to attempt to manipulate the Priveasy name, Priveasy services, or Priveasy products;</li>
+		<li>to attempt to gain unauthorized access to Priveasy services, user accounts, computer systems, servers, or networks connected to Priveasy services through hacking, password cracking, brute force, or any other means;</li>
+		<li>to use Priveasy services for any military purpose, including, but not limited to, cyberwarfare, weapons development, the design, manufacture, or production of missiles and other weapons, including, but not limited to, nuclear, chemical, or biological weapons;</li>
+		<li>to otherwise infringe on these Terms.</li>
+		</ul>
+		<blockquote>
+			<p>Plain English: See above.</p>
+		</blockquote>
+		<p>We are under no obligation to enforce the Terms against you. We encourage you to let us know about the violation of these Terms by any users; however, in case of such violations we may take appropriate action at our sole discretion.</p>
+		<blockquote>
+			<p>Plain English: We do not have to enforce these Terms, and encourage you to inform us of any violations of these Terms.</p>
+		</blockquote>
+		<p>You are responsible for maintaining the confidentiality of your Priveasy account username and password and for restricting access to your account. You may not share your password or other account access information with any other party, temporarily or permanently, and you agree to accept responsibility for all activities that occur under your account or password, whether or not authorized by you.</p>
+		<blockquote>
+			<p>Plain English: Keep your login information safe. If you don’t it’s not our fault.</p>
+		</blockquote>
+		<p>We are not responsible for downtime, loss of data, corrupt data, service delay, mistakes, out-of-date information, or other errors.</p>
+		<blockquote>
+			<p>Plain English: See above.</p>
+		</blockquote>
+		<p>PRIVEASY SERVICES ARE PROVIDED “AS IS” AND WITH ALL FAULTS. WE MAKE NO REPRESENTATION OR WARRANTY WHATSOEVER REGARDING THE COMPLETENESS, ACCURACY, ADEQUACY, SUITABILITY, FUNCTIONALITY, AVAILABILITY, OR OPERATION OF PRIVEASY SERVICES. YOU ACKNOWLEDGE THAT WE DO NOT HAVE CONTROL OVER YOUR USE OF PRIVEASY SERVICES, AND WE DO NOT WARRANT THE PERFORMANCE OR RESULTS THAT MAY BE OBTAINED THROUGH YOUR USE OF PRIVEASY SERVICES. YOU ASSUME ALL RISKS AND RESPONSIBILITY FOR YOUR USE OF PRIVEASY SERVICES AND FOR ANY LOSS OF OR ERRORS IN ANY DATA OR INFORMATION. TO THE FULL EXTENT PERMISSIBLE BY APPLICABLE LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT, AND ANY WARRANTIES ARISING THROUGH COURSE OF DEALING OR USAGE OF TRADE. WITHOUT LIMITING THE FOREGOING, WE NEITHER WARRANT NOR REPRESENT THAT YOUR USE OF PRIVEASY SERVICES WILL NOT INFRINGE THE RIGHTS OF ANY THIRD PARTIES, NOR THAT PRIVEASY SERVICES WILL BE AVAILABLE FOR YOUR ACCESS OR USE, NOR THAT OPERATION OF PRIVEASY SERVICES WILL BE ERROR FREE OR UNINTERRUPTED. PLEASE NOTE THAT SOME JURISDICTIONS MAY NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO SOME OF THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU. IN ADDITION, YOU MAY ALSO HAVE OTHER RIGHTS THAT VARY FROM ONE JURISDICTION TO ANOTHER JURISDICTION.</p>
+		<blockquote>
+			<p>Plain English: This is a standard disclaimer stating that Priveasy services are provided “as is,” which may include faults and errors. We make no guarantees about Priveasy services, and we cannot be held liable for any problems that occur.</p>
+		</blockquote>
+		<p>We shall not be responsible or have any liability for any form of degradation, delay, or failure of Priveasy services due to unforeseen circumstances, such as those beyond our control. This includes but is not limited to Force Majeure, earthquakes, fires, floods, embargoes, war, pandemics, strikes, labor disputes, riots, acts of civil and military authorities, changes in dependencies, third party changes, etc.</p>
+		<blockquote>
+			<p>Plain English: This is a standard disclaimer saying that we can’t be held responsible for providing services during extenuating circumstances.</p>
+		</blockquote>
+		<p>YOUR USE OF PRIVEASY SERVICES IS AT YOUR OWN RISK. PRIVEASY NOR ANY OF ITS ASSOCIATES, AFFILIATES, OR EMPLOYEES SHALL BE LIABLE FOR ANY DIRECT, INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR OTHER DAMAGES (INCLUDING, WITHOUT LIMITATION, LOSS OF DATA OR INFORMATION OF ANY KIND, LOSS OF BUSINESS, LOST PROFITS, INTERRUPTION OF BUSINESS, COST OF COVER, OR ANY OTHER DAMAGES) ARISING OUT OF OR IN ANY WAY RELATED TO THIS AGREEMENT OR THE USE OR INABILITY TO USE PRIVEASY SERVICES, WHETHER BASED ON CONTRACT, TORT, STRICT LIABILITY, OR OTHERWISE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN ANY CASE THE LIABILITY OF PRIVEASY SHALL NOT EXCEED WHAT THE CLIENT PAID TO PRIVEASY, AND SHALL NOT INCLUDE ATTORNEY FEES OR COURT COSTS IRRESPECTIVE OF ANY LAWS OR STATUTES THAT MAY PRESCRIBE OTHERWISE.</p>
+		<blockquote>
+			<p>Plain English: This is a standard disclaimer stating that you use Priveasy services at your own risk. We may not be held liable for any type of damage, injury, etc. caused by Priveasy services.</p>
+		</blockquote>
+		<p>ANY DISPUTE RESOLUTION PROCEEDINGS, WHETHER IN ARBITRATION OR COURT, WILL BE CONDUCTED ONLY ON AN INDIVIDUAL BASIS AND NOT IN A CLASS OR REPRESENTATIVE ACTION OR AS A NAMED OR UNNAMED MEMBER IN A CLASS, CONSOLIDATED, REPRESENTATIVE OR PRIVATE ATTORNEY GENERAL ACTION, UNLESS BOTH YOU AND PRIVEASY SPECIFICALLY AGREE TO DO SO IN WRITING FOLLOWING INITIATION OF THE ARBITRATION.</p>
+		<blockquote>
+			<p>Plain English: You may not file a class action lawsuit against us.</p>
+		</blockquote>
+		<p>This Agreement shall be governed by and construed in accordance with the laws of the State of Massachusetts, county of Hampshire (also commonly known as “Hampshire County”), without regard to conflicts of law principles. The sole and exclusive jurisdiction and venue for any action or proceeding arising out of or related to these Terms shall be in an appropriate state or federal court located in the State of Massachusetts, county of Hampshire. You hereby submit to the jurisdiction and venue of said Courts. You consent to service of process in any legal proceeding.</p>
+		<blockquote>
+			<p>Plain English: This is a standard “Choice of Law” clause, indicating that any legal proceedings must occur in Hampshire County, Massachusetts.</p>
+		</blockquote>
+		<p>If any term, clause or provision of the present agreement is held invalid or unenforceable by a court of competent jurisdiction, such invalidity shall not affect the validity or operation of any other term, clause or provision herein, and such invalid term, clause, or provision shall be deemed to be severed from these Terms.</p>
+		<blockquote>
+			<p>Plain English: If a specific term is found to be invalid by a court, you agree that the rest of the terms will still apply.</p>
+		</blockquote>
+		<p>You agree, at your own expense, to indemnify, defend and hold harmless Priveasy, its associates, affiliates, contributors, founders, supporters, or employees, from and against any judgments, losses, deficiencies, damages, liabilities, costs, claims, demands, suits, and expenses (including, without limitation, reasonable attorneys’ fees, expert witness fees and expenses) incurred in, arising out of, or in any way related to your breach of these Terms, your use of Priveasy Services, or any of your other acts or omissions.</p>
+		<blockquote>
+			<p>Plain English: Once again, you must not hold Priveasy liable in any way.</p>
+		</blockquote>
+		<p>You access and use Priveasy services in your country on your own initiative and you solely are responsible for complying with your local laws and regulations, if and to the extent that such laws are applicable. We reserve the right to limit, in our sole discretion, the availability of Priveasy services or any portion thereof, to any person, entity, geographic area, or jurisdiction, at any time.</p>
+		<blockquote>
+			<p>Plain English: Make sure you only use Priveasy services if it is legal for you to do so.</p>
+		</blockquote>
+		<p>You consent to receive communications from us electronically, e.g. by email, application messages, etc. We will communicate with you through the email that you provide. You agree that all agreements, notices, disclosures and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing. You agree that we may communicate to you, for the purpose of advising you of changes or additions to Priveasy services, about any of our products or services, or for such other purposes that are reasonable or required by applicable law.</p>
+		<blockquote>
+			<p>Plain English: You agree to allow us to contact you.</p>
+		</blockquote>
+		<p>If you have any questions, comments, or concerns with these Terms, please contact Priveasy support.</p>
+	</div>
+</body>
+</html>
