@@ -1,0 +1,388 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Priveasy Privacy Policy</title>
+	<link rel="icon" sizes="192x192" href="{% static "icons/Icon.png" %}">
+	<style>
+		/* This stylization has been derived from StackEdit: https://github.com/benweet/stackedit*/
+		.markdownFormat {
+		margin-bottom: 180px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 30px;
+		padding-right: 30px;
+		max-width: 750px;
+		}
+		html {
+		line-height: 1.15;
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%
+		}
+		body {
+		margin: 0;
+		}
+		article, aside, footer, header, nav, section {
+		display: block;
+		}
+		h1 {
+		font-size: 2em;
+		margin: .67em 0;
+		}
+		figcaption, figure {
+		display: block;
+		}
+		figure {
+		margin: 1em 40px;
+		}
+		hr {
+		box-sizing: content-box;
+		height: 0;
+		overflow: visible;
+		}
+		main {
+		display: block;
+		}
+		pre {
+		font-family: monospace, monospace;
+		font-size: 1em;
+		}
+		a {
+		background-color: transparent;
+		-webkit-text-decoration-skip: objects;
+		}
+		abbr[title] {
+		border-bottom: none;
+		text-decoration: underline;
+		text-decoration: underline dotted;
+		}
+		b, strong {
+		font-weight: inherit;
+		font-weight: bolder;
+		}
+		code, kbd, samp {
+		font-family: monospace, monospace;
+		font-size: 1em;
+		}
+		dfn {
+		font-style: italic;
+		}
+		mark {
+		background-color: #ff0;
+		color: #000;
+		}
+		small {
+		font-size: 80%}
+		sub, sup {
+		font-size: 75%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+		}
+		sub {
+		bottom: -.25em;
+		}
+		sup {
+		top: -.5em;
+		}
+		audio, video {
+		display: inline-block;
+		}
+		audio:not([controls]) {
+		display: none;
+		height: 0;
+		}
+		img {
+		border-style: none;
+		}
+		svg:not(:root) {
+		overflow: hidden;
+		}
+		button, input, optgroup, select, textarea {
+		font-family: sans-serif;
+		font-size: 100%;
+		line-height: 1.15;
+		margin: 0;
+		}
+		button {
+		overflow: visible;
+		}
+		button, select {
+		text-transform: none;
+		}
+		[type=reset], [type=submit], button, html [type=button] {
+		-webkit-appearance: button;
+		}
+		[type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner, button::-moz-focus-inner {
+		border-style: none;
+		padding: 0;
+		}
+		[type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring, button:-moz-focusring {
+		outline: 1px dotted ButtonText;
+		}
+		input {
+		overflow: visible;
+		}
+		[type=checkbox], [type=radio] {
+		box-sizing: border-box;
+		padding: 0;
+		}
+		[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+		height: auto;
+		}
+		[type=search] {
+		-webkit-appearance: textfield;
+		outline-offset: -2px;
+		}
+		[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
+		-webkit-appearance: none;
+		}
+		::-webkit-file-upload-button {
+		-webkit-appearance: button;
+		font: inherit;
+		}
+		fieldset {
+		padding: .35em .75em .625em;
+		}
+		legend {
+		box-sizing: border-box;
+		display: table;
+		max-width: 100%;
+		padding: 0;
+		color: inherit;
+		white-space: normal;
+		}
+		progress {
+		display: inline-block;
+		vertical-align: baseline;
+		}
+		textarea {
+		overflow: auto;
+		}
+		details {
+		display: block;
+		}
+		summary {
+		display: list-item;
+		}
+		menu {
+		display: block;
+		}
+		canvas {
+		display: inline-block;
+		}
+		[hidden], template {
+		display: none;
+		}
+		body, html {
+		color: rgba(0, 0, 0, .75);
+		font-size: 16px;
+		font-family: Lato, Helvetica Neue, Helvetica, sans-serif;
+		font-variant-ligatures: common-ligatures;
+		line-height: 1.67;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		}
+		blockquote, dl, ol, p, pre, ul {
+		margin: 1.2em 0;
+		}
+		h1, h2, h3, h4, h5, h6 {
+		margin: 1.8em 0;
+		line-height: 1.33;
+		}
+		h1:after, h2:after {
+		content: "";
+		display: block;
+		position: relative;
+		top: .33em;
+		border-bottom: 1px solid hsla(0, 0%, 50%, .33);
+		}
+		ol ol, ol ul, ul ol, ul ul {
+		margin: 0;
+		}
+		dt {
+		font-weight: 700;
+		}
+		a {
+		color: #0c93e4;
+		text-decoration: underline;
+		text-decoration-skip: ink;
+		}
+		a:focus, a:hover {
+		text-decoration: none;
+		}
+		code, pre, samp {
+		font-family: Roboto Mono, Lucida Sans Typewriter, Lucida Console, monaco, Courrier, monospace;
+		font-size: .85em;
+		}
+		code *, pre *, samp * {
+		font-size: inherit;
+		}
+		blockquote {
+		color: rgba(0, 0, 0, .5);
+		padding-left: 1.5em;
+		border-left: 5px solid rgba(0, 0, 0, .1);
+		}
+		code {
+		background-color: rgba(0, 0, 0, .05);
+		border-radius: 3px;
+		padding: 2px 4px;
+		}
+		hr {
+		border: 0;
+		border-top: 1px solid hsla(0, 0%, 50%, .33);
+		margin: 2em 0;
+		}
+		pre>code {
+		background-color: rgba(0, 0, 0, .05);
+		display: block;
+		padding: .5em;
+		-webkit-text-size-adjust: none;
+		overflow-x: auto;
+		white-space: pre;
+		}
+		table {
+		background-color: transparent;
+		border-collapse: collapse;
+		border-spacing: 0;
+		}
+		td, th {
+		border-right: 1px solid #dcdcdc;
+		padding: 8px 12px;
+		}
+		td:last-child, th:last-child {
+		border-right: 0;
+		}
+		td {
+		border-top: 1px solid #dcdcdc;
+		}
+		mark {
+		background-color: #f8f840;
+		}
+		kbd {
+		font-family: Lato, Helvetica Neue, Helvetica, sans-serif;
+		background-color: #fff;
+		border: 1px solid rgba(63, 63, 63, .25);
+		border-radius: 3px;
+		box-shadow: 0 1px 0 rgba(63, 63, 63, .25);
+		color: #333;
+		display: inline-block;
+		font-size: .8em;
+		margin: 0 .1em;
+		padding: .1em .6em;
+		white-space: nowrap;
+		}
+		abbr[title] {
+		border-bottom: 1px dotted #777;
+		cursor: help;
+		}
+		img {
+		max-width: 100%
+		}
+	</style>
+</head>
+<body>
+	<div class="markdownFormat">
+		<h1>Privacy Policy</h1>
+		<h3 id="last-updated-on-august-26-2020">Last Updated on August 26, 2020</h3>
+			<p>Priveasy’s privacy policy is simple. As an open source project, we do not need to go into great detail over exactly what we do with your data, if we share it with anyone, what trackers and analytics we use, etc. That’s because all of <a href="https://GitHub.com/P5vc">our code and documentation</a> is available for anyone to inspect, and with a simple analysis anyone can find out exactly what happens on all of our servers at all times (although for the record, we do not share your data, use analytics or trackers, etc.).</p>
+			<p>However, we also understand that many of our users may not necessarily be tech-savvy, or may just be looking for a quick overview of non-technical data. Therefore, in lieu of a standard privacy policy, we’ve done our best to compile a list of commonly-asked questions, and answer them below. If you have a common question that isn’t on this, but you think it should be, please don’t hesitate to open an issue on our GitHub, or <a href="mailto:Support@Priveasy.org">contact us</a>.</p>
+		<h2 id="you-say-that-youre-transparent...-how">You say that you’re transparent… how?</h2>
+			<p>Unlike every other organization/company out there providing privacy [VPN] services, Priveasy is 100% open source. Sure, some companies may contribute to some open source projects, or heck, even make an app or two of theirs open source, but Priveasy is the only organization that is completely open source and community run. On our GitHub, you can find all of our dependencies, server configurations, firewall rules, developer notes, etc., and even contribute to them yourself!</p>
+			<p>Priveasy believes that trust is the most important factor when choosing a “middle man” to handle your sensitive data, and that trust goes hand in hand with transparency. That’s why we give everyone full access to all of our configurations, and remove the negative influences that running a corporation can have. You won’t ever need to rely on some third-party to “verify” our setup for you: you can do it yourself.</p>
+			<p>Priveasy is not a company, as such, we are not concerned with revenue, advertising, or user count. Therefore, you’ll never see any false or misleading info on our website. For example, we’ll never show you one monthly price, just to charge you another unless you buy three years of service in bulk. We’ll also never lie to you and tell you, for example, that our VPN will make you anonymous, or that it will protect you against computer viruses.</p>
+		<h2 id="what-is-priveasys-logging-policy">What is Priveasy’s logging policy?</h2>
+			<p>Priveasy does not track, inspect, analyze or explicitly collect user data (other than that required upon sign up, and necessary for the normal operation of the site and its services) or logs. However, let us clarify what that means:</p>
+			<p>Pretty much every operating system out there collects logs. These logs are a standard part of computing, and help a system administrator to easily identify and fix problems. They are also extremely useful for security: they can be automatically scanned to recognize hacking attempts, and block offending IP addresses. Therefore, yes, all of our servers collect logs, as they improve the security of our system, and it’s nearly impossible to prevent all logging. That being said, <strong>not all logs are used by us or even accessible to us</strong>:</p>
+			<p>Some servers, such as our webservers, records servers, and database servers, do keep logs, and these logs are accessible to us. However, the logs expire rather quickly, an no user should ever have access to (and therefore never show up in any type of log whatsoever) our database and records servers. As for our webserver, as previously mentioned, the logs are regularly replaced, never stored or reviewed (except in the rare case of a server malfunction… but even then, it’s never been the case that the malfunction was caused by a user and therefore a logfile containing a user IP address needed to be reviewed). If you’re worried about logging on our webserver, then please use one of the many tools available to you: connect via our VPN, or access our onion site via Tor.</p>
+			<p>By design, <strong>we have zero access to our VPN servers</strong>. Once they are set up, they are fully automated, and sealed tight, preventing us from being able to edit, view, or change any data on them. As such, while our VPN servers do technically keep logs, for all intents and purposes, <strong>no logging is done</strong>. We are comfortable saying this because even if we wanted to, it would be physically impossible for us to retrieve any logs from our VPN servers. Our servers are fully encrypted. No logs or any other type of identifying information is ever sent-out from those serves. If we ever needed to change something on those servers (such as to cause them to begin sending logs), we would either have to either:</p>
+			<ol>
+				<li>Push the change to our public <a href="https://github.com/P5vc/ServerConfigurations">ServerConfigurations</a> repository for the VPN servers to automatically fetch and apply (and therefore making everyone aware of the changes, storing them in a permanent record, and allowing for total inspection and transparency)</li>
+				<li>Fully wipe the servers and reinstall the OS from scratch, forcing us to erase the logs in the process, along with all user configuration data</li>
+			</ol>
+			<p>It should also be made clear that the logging that is done by our VPN servers, <strong>has nothing to do with your connection information or internet traffic</strong>. Therefore even if the logs could be retrieved, they would contain no user IP addresses, timestamps, internet traffic data, etc.</p>
+			<p>Most VPN providers just claim “no logging” and end it there, due to the commonality of the above paragraph. However, because Priveasy is focused on transparency, we felt it important not to make any sort of generalizations, and educate the public on what it actually means to keep logs, and what sort of data is/isn’t kept, and or is/isn’t accessible.</p>
+		<h2 id="in-the-event-that-priveasy-is-hacked-what-data-would-be-available-to-the-attacker">In the event that Priveasy is hacked, what data would be available to the attacker?</h2>
+			<p>Not much. In order for an attacker to get any personal information on you at all, they would need to gain access to our database servers. These servers are well-protected, and gaining access to them is a whole lot easier said than done. That being said, let’s assume that an attacker did manage to gain access to our database servers, what would they be able to access?</p>
+			<p>Well, everything in our database. For a full overview of all of our database entries, feel free to read through <a href="https://github.com/P5vc/WebserverBackend/blob/master/Priveasy/mainSite/models.py">this file</a>. However, if we’re being honest, there’s almost nothing of use to them in our database. It mostly contains administrative entries (entries that help the site function, but don’t really matter if they’re made public).</p>
+			<p>The only personal information they’d be able to get on you would be your first name (assuming you provided your real one… which is not required) and your email address (which again, can be a burner). Other than that, if you had any unencrypted pastes, URL shorteners, or email forwarders, those would be available too.</p>
+			<p>We would like to make it clear that the following information would <strong>not</strong> be available to a hacker:</p>
+			<ul>
+				<li>Your password
+					<ul>
+						<li>Your password is stored as a salted hash, using Argon2. If you would like more-technical data, feel free to check out <a href="https://en.wikipedia.org/wiki/Argon2">this article</a> on Wikipedia. Long story short: assuming your password isn’t absolutely, inexcusably terrible, the hacker would not be able to get your real password.</li>
+					</ul>
+				</li>
+				<li>Your credit card information
+					<ul>
+						<li>All of your credit card information is stored with Stripe. It is never stored on our servers, nor even sent to our servers.</li>
+					</ul>
+				</li>
+				<li>Your emails or text messages
+					<ul>
+						<li>Priveasy uses Postfix virtual aliases to forward incoming emails to its users. Therefore, when using an email forwarder, the emails being forwarded are never, read, stored, or inspected, and therefore any forwarded emails would not be available to a hacker. We also do not store sent emails… so no hacker could acquire that data either.</li>
+						<li>Priveasy does not store any text message history. Twilio, our text message service provider, may store message content and history, but we don’t. If we were hacked, there would be no text message history on our servers for the hacker to access.</li>
+					</ul>
+				</li>
+				<li>Your browsing history/internet traffic
+					<ul>
+						<li>As you can read above, no logs concerning your internet traffic are kept on our VPN servers.</li>
+					</ul>
+				</li>
+				<li>Old account details
+					<ul>
+						<li>All inactive Priveasy accounts (accounts that do not have an active plan, and haven’t been logged-into within the past 30 days) are automatically removed, along with all associated account data.</li>
+					</ul>
+				</li>
+			</ul>
+		<h2 id="what-payment-methods-does-priveasy-accept">What payment methods does Priveasy accept?</h2>
+			<p>Priveasy accepts credit cards and privacy coins (cryptocurrency), which at the time of writing consists of both transparent and shielded Zcash transactions.</p>
+		<h2 id="how-complicated-is-priveasys-backend">How complicated is Priveasy’s backend?</h2>
+			<p>Priveasy’s backend is extremely standardized, straight forward, commented, and easy to understand. In other words: it is not complicated at all.</p>
+			<p>Because Priveasy focuses on transparency, we do our best to trim our code, keeping it short, reasonable, and efficient. It is important to us to remain easily auditable by a single person. Every user deserves the right to be able to inspect our backend, and understand exactly what is happening with their data.</p>
+		<h2 id="under-what-jurisdiction-is-priveasy-operating">Under what jurisdiction is Priveasy operating?</h2>
+			<p>Priveasy is simply an organization. We have no official legal status as we don’t take any profits, we don’t have any employees, and we live on the internet, not in any particular city or town. We have servers all over the world, which, at the time of writing, includes the United States of America, Canada, Germany, and the Netherlands. If you are interested in specific laws or legal matters pertaining to Priveasy, please view our <a href="https://priveasy.org/policies/2/">Terms of Service</a>.</p>
+			<p>Priveasy does, at times, pay developers, freelancers, or other types of contributors for their work. However, they are not an employee of Priveasy, and they pay their own taxes on the money, as required by their place of residence.</p>
+			<p>People normally ask this question in regards to our VPN service: they want to make sure we’re not obligated to follow any specific data retention laws, we’re not giving “inside access” to some specific government, and that we’re not filtering user traffic through one of the “14 Eyes” nations.</p>
+			<p>We do not retain your data, and our code proves it. As you can verify, no internet traffic/emails/text messages/etc. are stored. Even if we wanted to, or even with a legal court order, it would be impossible for us to hand over this information. As for traffic locations… it does not matter: you are free to use Tor when visiting our website, and you are free to use a VPN server located outside of one of the “14 Eyes” nations.</p>
+		<h2 id="how-many-vpn-locationsservers-do-you-have">How many VPN locations/servers do you have?</h2>
+			<p>For a full list of our servers, check out <a href="https://github.com/P5vc/Documentation/blob/master/Configurations/DNS.md">our DNS entries</a>.</p>
+			<p>We focus on providing two types of servers: Domestic Servers, and Offshore Servers. Domestic Servers are designed for people living within North America (the majority of our users), and provide them with low-latency connections. Our Offshore Servers are designed with greater confidentiality in mind, and are strategically located in countries with more-permissible laws. As a user, you will have the ability to choose from either of these regions. We do not, however, break-up our servers by specific country. This current setup allows us to pool VPN connections, with the goal of providing all of our users with enhanced privacy because of it.</p>
+		<h2 id="how-many-simultaneous-vpn-connections-do-you-allow-per-user">How many simultaneous VPN connections do you allow per user?</h2>
+			<p>Technically, 20:</p>
+			<ul>
+				<li>5 connections via WireGuard per Domestic Server</li>
+				<li>5 connections via WireGuard per Offshore Server</li>
+				<li>3 connections via raw Shadowsocks per Domestic Server</li>
+				<li>3 connections via raw Shadowsocks per Offshore Server</li>
+				<li>2 connections via Shadowsocks + V2Ray per Domestic Server</li>
+				<li>2 connections via Shadowsocks + V2Ray per Offshore Server</li>
+			</ul>
+		<h2 id="do-you-allow-torrenting-with-your-vpn">Do you allow torrenting with your VPN?</h2>
+			<p>Yes, but only on our Offshore Servers.</p>
+		<h2 id="does-your-vpn-work-with-netflix-amazon-prime-disney-etc.">Does your VPN work with Netflix, Amazon Prime, Disney+, etc.?</h2>
+			<p>Maybe. We do not try to make it work, nor do we expect it to. The techniques that VPN companies use to consistently “evade” being blocked by streaming services actually reduces user privacy/anonymity. While the reduction may be considered relatively inconsequential to some, and generally only affects the tracking abilities of nation states, it’s still important to us. Our goal is to guard user privacy, and that’s what we do best. If you would rather be able to watch Netflix “from some other country,” then our VPN is probably not for you.</p>
+		<h2 id="what-information-does-priveasy-share-with-third-parties">What information does Priveasy share with third parties?</h2>
+			<p>None, with two exceptions:</p>
+			<ul>
+				<li>If you pay via credit card, then we must send your email address to Stripe. We assume that Stripe also collects your credit card information, IP address, and user agent when you check out via credit card, using their widget.</li>
+				<li>If you send a text message, then we must send the contents of the message and the destination phone number to Twilio.</li>
+			</ul>
+		<h2 id="could-a-third-party-ever-force-you-to-reveal-user-data">Could a third-party ever force you to reveal user data?</h2>
+			<p>We suppose that it’s theoretically possible, however there’s almost zero information that we could actually give them, let alone useful information. In the event that we are put into this situation, we have many tripwires and mechanisms in place to keep you informed, and safe. Right on our front page, as a matter of fact, you can find our canary.</p>
+		<h2 id="how-does-priveasy-support-activists-journalists-and-other-people-in-need-of-obfuscated-connections">How does Priveasy support activists, journalists, and other people in need of obfuscated connections?</h2>
+			<p>We do a lot, actually. Here are some of the highlights:</p>
+			<ul>
+				<li>Priveasy always utilizes the latest obfuscation technology to help people working/living under an oppressive government access the open internet, undetected</li>
+				<li>Priveasy accepts anonymous/private forms of payment, such as shielded Zcash transactions</li>
+				<li>Priveasy offers discounts and free account to people in need</li>
+				<li>Priveasy offers many communication services that can help journalists cover their tracks</li>
+				<li>Priveasy works with activists across social media, accepting alternative payment methods, making website translations, and doing whatever else we can to support everyone</li>
+				<li>Priveasy is accessible via Tor</li>
+			</ul>
+	</div>
+</body>
+</html>
