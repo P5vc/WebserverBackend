@@ -83,6 +83,7 @@ class VPNProfile(models.Model):
 
 	vpnUsername = models.CharField('VPN username' , max_length = 14 , default = createUsername)
 	vpnProfileNum = models.IntegerField('VPN profile number' , default = 0)
+	persistent = models.BooleanField('VPN profile persists through server upgrades' , default = False)
 
 
 
