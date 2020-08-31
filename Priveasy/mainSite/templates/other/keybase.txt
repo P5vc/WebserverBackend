@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/priveasy
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://Priveasy.org
+  * I am priveasy (https://keybase.io/priveasy) on keybase.
+  * I have a public key ASAgB3P9z4_4Bi0gI_6NTY7r9Q7wMd9oPLv4vCGo8s1G9Qo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120200773fdcf8ff8062d2023fe8d4d8eebf50ef031df683cbbf8bc21a8f2cd46f50a",
+      "host": "keybase.io",
+      "kid": "0120200773fdcf8ff8062d2023fe8d4d8eebf50ef031df683cbbf8bc21a8f2cd46f50a",
+      "uid": "e012a1760084a2e72e3128c9e1c91319",
+      "username": "priveasy"
+    },
+    "merkle_root": {
+      "ctime": 1598852329,
+      "hash": "0c6de7bbfe72222bb8045ade47d0a17d125566a4ad7a405df8f2a6acb617ea3eebc23ef5dd1ad2d823e90dd69a3373ba3297b1d2ee92531ba28e136d6f71a5b5",
+      "hash_meta": "d8c24a572ba102cde5b6de7c00df24f04d27d2bb32e256acdf48acdc2487631a",
+      "seqno": 17430244
+    },
+    "service": {
+      "entropy": "huk/uI7zsqfI1AQr905iEbvE",
+      "hostname": "Priveasy.org",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.0"
+  },
+  "ctime": 1598852351,
+  "expire_in": 504576000,
+  "prev": "3b2e4c6e42d0d576f98d81a5f1224f83aa7f0268d53ed60a2f42ea58f23edd49",
+  "seqno": 15,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgIAdz/c+P+AYtICP+jU2O6/UO8DHfaDy7+LwhqPLNRvUKp3BheWxvYWTESpcCD8QgOy5MbkLQ1Xb5jYGl8SJPg6p/AmjVPtYKL0LqWPI+3UnEIKJGM/rmBjqjSmQUEh8CGRmR7w7RVHtXstNA13vPvzBQAgHCo3NpZ8RA5y3VC30wpvhiYUNtyV/BbCy0ngnZMwQ4zbreWhVX4k3kjEqdGosReavwn4z5KNN6xlUZeTkSUn+LuDUN6azwBqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIF3oM8inTivqdQjfBrmZ1tJTjenMqxZiTx47i/L5GFo0o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/priveasy
+
+==================================================================
