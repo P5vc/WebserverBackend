@@ -147,7 +147,7 @@ def zcash():
 
 
 	for zcashAddrObj in ZcashPaymentAddresses.objects.filter(requested = True , generated = False):
-		process = subprocess.Popen(['sudo' , '-u' , 'ubuntu' , '/home/ubuntu/ZCash/zecwallet-cli'] , stdout = subprocess.PIPE , stdin = subprocess.PIPE)
+		process = subprocess.Popen(['sudo' , '-u' , 'ubuntu' , '/home/ubuntu/Zcash/zecwallet-cli'] , stdout = subprocess.PIPE , stdin = subprocess.PIPE)
 		command = (b'unlock ' + settings.ZCASH_WALLET_ENCRYPTION_KEY + b'\nnew z\n' + b'unlock ' + settings.ZCASH_WALLET_ENCRYPTION_KEY + b'\nnew t\n')
 		process.stdin.write(command)
 		process.stdin.flush()
@@ -166,7 +166,7 @@ def zcash():
 			return
 
 	# Handle any received payments:
-	process = subprocess.Popen(['sudo' , '-u' , 'ubuntu' , '/home/ubuntu/ZCash/zecwallet-cli'] , stdout = subprocess.PIPE , stdin = subprocess.PIPE)
+	process = subprocess.Popen(['sudo' , '-u' , 'ubuntu' , '/home/ubuntu/Zcash/zecwallet-cli'] , stdout = subprocess.PIPE , stdin = subprocess.PIPE)
 	command = (b'balance\n')
 	process.stdin.write(command)
 	process.stdin.flush()
@@ -193,7 +193,7 @@ def zcash():
 					addToAccount(address['balance'] , zcashAddressObj.account)
 
 		if (totalBalance > 0):
-			process = subprocess.Popen(['sudo' , '-u' , 'ubuntu' , '/home/ubuntu/ZCash/zecwallet-cli'] , stdout = subprocess.PIPE , stdin = subprocess.PIPE)
+			process = subprocess.Popen(['sudo' , '-u' , 'ubuntu' , '/home/ubuntu/Zcash/zecwallet-cli'] , stdout = subprocess.PIPE , stdin = subprocess.PIPE)
 			command = (b'unlock ' + settings.ZCASH_WALLET_ENCRYPTION_KEY + b'\nsend ' + settings.PRIVEASY_ZCASH_ADDRESS + b' ' + str(totalBalance).encode('utf-8') + b'\n')
 			process.stdin.write(command)
 			process.stdin.flush()
