@@ -384,7 +384,7 @@ def maintenance():
 
 	for discountObj in Discount.objects.all():
 		if (time.time() >= discountObj.expiration):
-			sendEmail.delay('Priveasy.org Server Message' , ('The discount code: "' + discountObj.code + '" has expired, and was deleted. This code was used a total of ' + str(discountObj.timesUsed) + ' times.') , 'Server@NoReply.Priveasy.org' , ['Admin@NoahTroy.com'] , standardNotificationTemplate = True)
+			sendEmail.delay('Priveasy.org Server Message' , ('The discount code: "' + discountObj.code + '" has expired, and was deleted. This code was used a total of ' + str(discountObj.timesUsed) + ' times.') , 'Server@NoReply.Priveasy.org' , ['Admin@Priveasy.org'] , standardNotificationTemplate = True)
 			discountObj.delete()
 
 	diskUsage = shutil.disk_usage('/')
