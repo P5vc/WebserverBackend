@@ -1091,3 +1091,15 @@ def short(request , slug = ''):
 		pageStatsObj.priveasy404Views += 1
 		pageStatsObj.save()
 		raise Http404("Page does not exist")
+
+
+@login_required
+def config(request , slug = ''):
+	if (slug == 'persistenceOn'):
+		request.user.accountcontents.vpnPersistence = True
+		request.user.accountcontents.save()
+	elif (slug == 'persistenceOff'):
+		request.user.accountcontents.vpnPersistence = False
+		request.user.accountcontents.save()
+	else:
+		return redirect('account')

@@ -18,5 +18,6 @@ urlpatterns = [
 				path('account/purchase/crypto/' , views.cryptoPayment , name = 'cryptoPayment'),
 				path('vpn/download/<slug:slug>/' , views.vpnDownload , name = 'vpnDownload'),
 				path('policies/<slug:slug>/' , views.policies , name = 'policies'),
+				path('config/<slug:slug>' , views.config , name = 'config')
 				path('<slug:slug>/' , views.short , name = 'short')
 			]

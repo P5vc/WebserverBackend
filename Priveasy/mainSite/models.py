@@ -22,23 +22,31 @@ class Stats(models.Model):
 class AccountContents(models.Model):
 	user = models.OneToOneField(settings.AUTH_USER_MODEL , on_delete = models.CASCADE)
 
-	#Account Data:
+	# Account Data:
 	accountCreated = models.DateTimeField('Account created' , auto_now_add = True)
 	accountLastUpdated = models.DateTimeField('Account last updated' , auto_now = True)
+
+	# Plan Data:
 	planType = models.IntegerField('Plan number' , default = 0)
 	planExpiration = models.IntegerField('Plan expiration' , default = 0)
+
+	# Payment Data:
 	autoRenew = models.BooleanField('Auto renew enabled' , default = False)
 	longRenew = models.BooleanField('Renew for six months' , default = False)
 	stripeID = models.CharField('Stripe customer ID' , max_length = 36 , blank = True)
 
-	#Restrict Email Sends:
+	# Restrict Email Sends:
 	emailsRemaining = models.IntegerField('Emails remaining' , default = 0)
 
-	#Restrict Text Sends:
+	# Restrict Text Sends:
 	textsRemaining = models.IntegerField('Texts remaining' , default = 0)
 
-	#Restrict Referral Code Use:
+	# Restrict Referral Code Use:
 	refCodeUsed = models.BooleanField('A referral code has been used' , default = False)
+
+	# VPN Data:
+	vpnPersistence = models.BooleanField('VPN profile persists through server upgrades' , default = False)
+
 
 
 class VPNServer(models.Model):
@@ -83,7 +91,6 @@ class VPNProfile(models.Model):
 
 	vpnUsername = models.CharField('VPN username' , max_length = 14 , default = createUsername)
 	vpnProfileNum = models.IntegerField('VPN profile number' , default = 0)
-	persistent = models.BooleanField('VPN profile persists through server upgrades' , default = False)
 
 
 
