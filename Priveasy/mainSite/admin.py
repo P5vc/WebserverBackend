@@ -11,7 +11,7 @@ class StatsAdmin(admin.ModelAdmin):
 
 @admin.register(VPNProfile)
 class VPNProfileAdmin(admin.ModelAdmin):
-	list_display = ['vpnUsername' , 'server' , 'vpnProfileNum' , 'persistent']
+	list_display = ['vpnUsername' , 'server' , 'vpnProfileNum']
 
 @admin.register(Paste)
 class PasteAdmin(admin.ModelAdmin):
