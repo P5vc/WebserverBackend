@@ -381,7 +381,10 @@ def maintenance():
 		with open('/home/ubuntu/priveasyVPN/' + server.serverID + '.conf' , 'w') as configFile:
 			usernameList = ''
 			for profile in VPNProfile.objects.filter(server = server):
-				usernameList += (profile.vpnUsername + '\n')
+				if (profile.account.vpnPersistence):
+					usernameList += ('p' + profile.vpnUsername + '\n')
+				else:
+					usernameList += (profile.vpnUsername + '\n')
 			configFile.write(usernameList)
 		if (not (os.path.exists('/home/ubuntu/priveasyVPN/configs/' + server.serverID))):
 			os.mkdir('/home/ubuntu/priveasyVPN/configs/' + server.serverID)
