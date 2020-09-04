@@ -8,7 +8,7 @@ from twilio.rest import Client
 from .models import *
 from math import ceil as roundUp
 from math import floor as roundDown
-import subprocess , time , shutil , random , os , json , requests
+import subprocess , time , shutil , random , os , json , requests , pickle
 
 
 @task(name = 'sendEmail')
@@ -388,6 +388,9 @@ def maintenance():
 			configFile.write(usernameList)
 		if (not (os.path.exists('/home/ubuntu/priveasyVPN/configs/' + server.serverID))):
 			os.mkdir('/home/ubuntu/priveasyVPN/configs/' + server.serverID)
+		if (not (os.path.exists('/home/ubuntu/priveasyVPN/configs/' + server.serverID + '/pUsers.dat'))):
+			with open(('/home/ubuntu/priveasyVPN/configs/' + server.serverID + '/pUsers.dat') , 'w') as pUsersFile:
+				pickle.dump({'WireGuard' : [] , 'Shadowsocks' : []} , pUsersFile)
 
 	for discountObj in Discount.objects.all():
 		if (time.time() >= discountObj.expiration):
