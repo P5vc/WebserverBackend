@@ -235,8 +235,12 @@ def maintenance():
 		secondsSinceLastLogin = int(time.time() - user.last_login.timestamp())
 
 		if (((user.accountcontents.planType == 0) and (secondsLeft <= 0)) and (secondsSinceLastLogin > 2592000)):
-			sendEmail.delay('Priveasy Account Deleted' , 'Your account at Priveasy.org has been removed. This is a normal process that occurs for security and privacy reasons, and to preserve server resources when accounts don\'t have an active plan and haven\'t been logged-into or modified for over 30 days. We hope you\'ll come back soon, and you\'re always welcome to create a new account! Thank you, and sorry for the inconvenience!' , 'AccountRemoval@NoReply.Priveasy.org' , [user.email] , standardNotificationTemplate = True)
+			sendEmail.delay('Priveasy Account Deleted' , 'Your account at Priveasy.org has been removed. This is a normal process that occurs for security and privacy reasons, and to preserve server resources when accounts don\'t have an active plan and haven\'t been logged-into for over 30 days. We hope you\'ll come back soon, and you\'re always welcome to create a new account! Thank you, and sorry for the inconvenience!' , 'AccountRemoval@NoReply.Priveasy.org' , [user.email] , standardNotificationTemplate = True)
 			user.delete()
+			continue
+
+		if (((user.accountcontents.planType == 0) and (secondsLeft <= 0)) and (secondsSinceLastLogin > 2332800)):
+			sendEmail.delay('Priveasy Account Removal' , 'Your account at Priveasy.org is scheduled to be removed in one week. This is a normal process that occurs for security and privacy reasons, and to preserve server resources when accounts don\'t have an active plan and haven\'t been logged-into for over 30 days. To cancel this removal, simply log into your account within one week\'s time. In the event that your account is removed, you\'re always welcome to create a new one at a later date! Thank you, and sorry for the inconvenience!' , 'AccountRemoval@NoReply.Priveasy.org' , [user.email] , standardNotificationTemplate = True)
 
 		if ((secondsLeft <= 0) and (user.accountcontents.planType > 0)):
 			user.accountcontents.planType = 0
