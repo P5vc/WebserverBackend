@@ -1102,4 +1102,6 @@ def config(request , slug = ''):
 		request.user.accountcontents.vpnPersistence = False
 		request.user.accountcontents.save()
 	else:
-		return redirect('account')
+		return render(request , 'fullscreenMessage.html' , {'delay' : 5 , 'redirectURL' : reverse('account') , 'title' : 'Error' , 'message' : 'Error! This configuration could not be found.'})
+
+	return redirect('account')
