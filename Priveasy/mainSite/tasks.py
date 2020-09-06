@@ -389,7 +389,7 @@ def maintenance():
 		if (not (os.path.exists('/home/ubuntu/priveasyVPN/configs/' + server.serverID))):
 			os.mkdir('/home/ubuntu/priveasyVPN/configs/' + server.serverID)
 		if (not (os.path.exists('/home/ubuntu/priveasyVPN/configs/' + server.serverID + '/pUsers.dat'))):
-			with open(('/home/ubuntu/priveasyVPN/configs/' + server.serverID + '/pUsers.dat') , 'w') as pUsersFile:
+			with open(('/home/ubuntu/priveasyVPN/configs/' + server.serverID + '/pUsers.dat') , 'wb') as pUsersFile:
 				pickle.dump({'WireGuard' : [] , 'Shadowsocks' : []} , pUsersFile)
 
 	for discountObj in Discount.objects.all():
