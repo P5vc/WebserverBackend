@@ -784,6 +784,8 @@ def vpnDownload(request , slug = ''):
 						pageStatsObj.save()
 
 						return HttpResponse(returnContents)
+					else:
+						return render(request , 'fullscreenMessage.html' , {'delay' : 7 , 'redirectURL' : reverse('account') , 'title' : 'Error' , 'message' : 'Error! The URL you entered was invalid.'})
 				else:
 					if (slug == '1a'):
 						ioObj = BytesIO()
