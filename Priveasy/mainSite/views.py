@@ -688,7 +688,7 @@ def vpnDownload(request , slug = ''):
 						emailContents = ''
 						with open('/home/ubuntu/Priveasy/mainSite/templates/email/vpnEmail.html' , 'r') as emailFile:
 							emailContents = emailFile.read()
-						sendEmail.delay('VPN Installation Instructions' , emailContents , 'VPN@NoReply.Priveasy.org' , [request.user.email] , attach = False , attachments = [] , runCommandFirst = False , command = '' , subType = 'html')
+						sendEmail.delay('VPN Installation Instructions' , emailContents , 'VPN@NoReply.Priveasy.org' , [request.user.email] , subType = 'html')
 						return render(request , 'fullscreenMessage.html' , {'delay' : 3 , 'redirectURL' : reverse('account') , 'title' : 'Success' , 'message' : 'Success! The email has been sent!'})
 					elif (slug == '1'):
 						return render(request , 'vpnSelection.html' , {'slug1' : (slug + 'a') , 'slug2' : (slug + 'b') , 'slug3' : (slug + 'c') , 'slug4' : (slug + 'd') , 'slug5' : (slug + 'e') , 'slug6' : (slug + 'f') , 'slug7' : (slug + 'g') , 'slug8' : (slug + 'h') , 'slug9' : (slug + 'i') , 'slug10' : (slug + 'j')})
