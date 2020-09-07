@@ -390,7 +390,7 @@ def maintenance():
 			os.mkdir('/home/ubuntu/priveasyVPN/configs/' + server.serverID)
 		if (not (os.path.exists('/home/ubuntu/priveasyVPN/configs/' + server.serverID + '/pUsers.dat'))):
 			with open(('/home/ubuntu/priveasyVPN/configs/' + server.serverID + '/pUsers.dat') , 'wb') as pUsersFile:
-				pickle.dump({'WireGuard' : [] , 'Shadowsocks' : []} , pUsersFile)
+				pickle.dump({'WireGuard' : {} , 'Shadowsocks' : {}} , pUsersFile)
 
 	for discountObj in Discount.objects.all():
 		if (time.time() >= discountObj.expiration):
