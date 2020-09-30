@@ -20,11 +20,17 @@ class Stats(models.Model):
 
 
 class AccountContents(models.Model):
+	def genSecret():
+		return str(uuid.uuid4())
+
+
 	user = models.OneToOneField(settings.AUTH_USER_MODEL , on_delete = models.CASCADE)
 
 	# Account Data:
 	accountCreated = models.DateTimeField('Account created' , auto_now_add = True)
 	accountLastUpdated = models.DateTimeField('Account last updated' , auto_now = True)
+	accountSecret = models.CharField('Account secret' , max_length = 36 , default = genSecret) # To be transmitted to the user via an external method, and used for action verifications
+	emailVerified = models.BooleanField('Account email verified' , default = False)
 
 	# Plan Data:
 	planType = models.IntegerField('Plan number' , default = 0)
