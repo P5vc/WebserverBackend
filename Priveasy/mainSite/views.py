@@ -1107,3 +1107,8 @@ def config(request , slug = ''):
 		return render(request , 'fullscreenMessage.html' , {'delay' : 5 , 'redirectURL' : reverse('account') , 'title' : 'Error' , 'message' : 'Error! This configuration could not be found.'})
 
 	return redirect('account')
+
+
+# Verify user actions by accepting a designated secret as a slug:
+def verify(request , slug = ''):
+	pass
