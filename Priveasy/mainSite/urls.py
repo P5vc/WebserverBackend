@@ -19,5 +19,6 @@ urlpatterns = [
 				path('vpn/download/<slug:slug>/' , views.vpnDownload , name = 'vpnDownload'),
 				path('policies/<slug:slug>/' , views.policies , name = 'policies'),
 				path('config/<slug:slug>' , views.config , name = 'config'),
+				path('verify/<slug:slug>' , views.verify , name = 'verify'),
 				path('<slug:slug>/' , views.short , name = 'short')
 			]
