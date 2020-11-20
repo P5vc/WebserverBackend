@@ -13,7 +13,7 @@ def home(request):
 	an appropriate HTTP response.
 
 	Accepts:
-		(django.http.HttpResponse): HttpRequest object to be processed
+		(django.http.HttpRequest): HttpRequest object to be processed
 
 	Returns:
 		(django.http.HttpResponse): Appropriate HttpResponse object
@@ -41,6 +41,7 @@ def home(request):
 			isUsingVPN = False
 
 		return render(request , 'home.html' , {'isUsingVPN' : isUsingVPN})
+
 
 	# Process POST requests:
 	if (request.method == 'POST'):

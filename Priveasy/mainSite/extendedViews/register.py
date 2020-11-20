@@ -14,7 +14,7 @@ def register(request):
 	an appropriate HTTP response.
 
 	Accepts:
-		(django.http.HttpResponse): HttpRequest object to be processed
+		(django.http.HttpRequest): HttpRequest object to be processed
 
 	Returns:
 		(django.http.HttpResponse): Appropriate HttpResponse object
