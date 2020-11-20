@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate , login
+from django.shortcuts import render , redirect
 from ..models import Stats , VPNServer
 from ..forms import LoginForm
 from .generic404 import p5vcNotFound
