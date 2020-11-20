@@ -6,6 +6,7 @@ class Stats(models.Model):
 	# Page View Stats:
 	homeViews = models.IntegerField('Number of times the home page was viewed' , default = 0)
 	accountViews = models.IntegerField('Number of times an account page was viewed' , default = 0)
+	registerViews = models.IntegerField('Number of times the register page was viewed' , default = 0)
 	termsViews = models.IntegerField('Number of times the Terms were viewed' , default = 0)
 	privacyPolicyViews = models.IntegerField('Number of times the Privacy Policy was viewed' , default = 0)
 	cryptoPageViews = models.IntegerField('Number of times the cryptocurrency purchase page was viewed' , default = 0)
