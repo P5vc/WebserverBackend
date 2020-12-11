@@ -19,7 +19,9 @@ def p5vcNotFound():
 		and generic, "Not Found" HTML
 	'''
 
+	# Update page statistics:
 	pageStatsObj = Stats.objects.get(id = 1)
 	pageStatsObj.p5vc404Views += 1
 	pageStatsObj.save()
+
 	return HttpResponse('\n<!doctype html>\n<html lang="en">\n<head>\n  <title>Not Found</title>\n</head>\n<body>\n  <h1>Not Found</h1><p>The requested resource was not found on this server.</p>\n</body>\n</html>\n' , status = 404)

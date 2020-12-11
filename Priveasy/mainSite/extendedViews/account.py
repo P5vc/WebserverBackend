@@ -32,7 +32,7 @@ def account(request):
 
 	# Process GET requests:
 	if (request.method == 'GET'):
-		# Update page statistics
+		# Update page statistics:
 		pageStatsObj = Stats.objects.get(id = 1)
 		pageStatsObj.accountViews += 1
 		pageStatsObj.save()
