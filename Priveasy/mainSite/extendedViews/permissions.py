@@ -67,4 +67,18 @@ def checkPermission(resourceID , user):
 		if (user.accountcontents.planType >= 3):
 			return True
 
+	elif (resourceID == 'VPN'):
+		if (user.accountcontents.planType >= 2):
+			return True
+	elif (resourceID == 'Shadowsocks'):
+		if (user.accountcontents.planType >= 3):
+			return True
+	elif (resourceID[:4] == 'VPN-'):
+		if (user.accountcontents.planType >= 3):
+			return True
+		elif ((user.accountcontents.planType == 2) and (resourceID[4] in 'ab')):
+			return True
+		else:
+			return False
+
 	return False
